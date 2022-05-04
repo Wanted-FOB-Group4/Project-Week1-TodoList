@@ -19,6 +19,20 @@ function App() {
       category: 'personal',
       content: 'This is the first task',
     },
+    {
+      id: 2,
+      date: '',
+      isDone: true,
+      category: 'business',
+      content: 'This is the second task',
+    },
+    {
+      id: 3,
+      date: '',
+      isDone: false,
+      category: 'business',
+      content: 'This is the third task',
+    },
   ])
 
   return (
