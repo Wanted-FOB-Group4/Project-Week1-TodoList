@@ -1,0 +1,27 @@
+.profileDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.profileSect {
+  display: flex;
+  flex-direction: column;
+  width: 100rem;
+  background-color: aqua;
+
+  & > img {
+    width: 30%;
+    background-color: #ffffff;
+    border-radius: 50%;
+  }
+
+  .nickname {
+    font-size: 10rem;
+    font-weight: 700;
+  }
+}
+
+.buttonWrapper {
+  color: #ffffff;
+  background-color: teal;
+}
