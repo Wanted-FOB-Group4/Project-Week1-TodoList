@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 import SectionTitle from '../SectionTitle'
 import styles from './Tasks.module.scss'
 import TaskItem from '../TaskItem'
@@ -6,6 +7,10 @@ import TaskItem from '../TaskItem'
 function Tasks({ tasks, setTasks }) {
   const handleToggleTask = (id) => {
     setTasks((_) => tasks.map((task) => (task.id === id ? { ...task, isDone: !task.isDone } : task)))
+  }
+
+  const handleClickDeleteButton = (id) => {
+    setTasks((_) => tasks.filter((task) => task.id !== id))
   }
 
   return (
@@ -18,7 +23,8 @@ function Tasks({ tasks, setTasks }) {
             isDone={isDone}
             category={category}
             content={content}
-            onClick={() => handleToggleTask(id)}
+            onToggle={() => handleToggleTask(id)}
+            onClick={() => handleClickDeleteButton(id)}
           />
         ))}
       </ul>
