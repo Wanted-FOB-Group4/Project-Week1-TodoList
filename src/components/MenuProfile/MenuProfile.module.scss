@@ -1,27 +1,41 @@
+@use '/src/styles/constants/colors';
+
 .profileDiv {
   display: flex;
   flex-direction: row;
+  padding: 2rem 1rem;
 }
 
 .profileSect {
   display: flex;
   flex-direction: column;
-  width: 100rem;
-  background-color: aqua;
+  align-items: left;
+  justify-content: center;
+  width: 50%;
+  padding: 1rem;
 
   & > img {
-    width: 30%;
+    width: 4rem;
+    margin-bottom: 2rem;
     background-color: #ffffff;
     border-radius: 50%;
   }
 
-  .nickname {
-    font-size: 10rem;
-    font-weight: 700;
+  h1 {
+    width: 100%;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: colors.$WHITE;
+    letter-spacing: 0.1px;
   }
 }
 
 .buttonWrapper {
-  color: #ffffff;
-  background-color: teal;
+  width: 2.3rem;
+  height: 2.3rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 100%);
+  border: 1px solid rgba(255, 255, 255, 50%);
+  border-radius: 50%;
 }
