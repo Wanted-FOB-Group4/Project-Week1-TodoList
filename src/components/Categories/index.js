@@ -66,7 +66,7 @@ function Categories() {
                 <p className={styles.categoryTitle}>{key}</p>
                 <div className={styles.categoryProgress}>
                   <div
-                    className={`${styles.categoryProgressBar} ${styles[color]}`}
+                    className={`${styles.categoryProgressTrack} ${styles[color]}`}
                     style={{ width: `${tasksProgress * 100}%` }}
                   />
                   <div
