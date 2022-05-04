@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Routes.module.scss'
 
 import Header from '../components/Header'
@@ -7,7 +7,6 @@ import Categories from '../components/Categories'
 import Tasks from '../components/Tasks'
 
 // TODO: Make CreateTaskButton
-// TODO: Make SectionTitle
 
 function App() {
   const [userName, setUserName] = useState('Joy')
@@ -34,6 +33,18 @@ function App() {
       content: 'This is the third task',
     },
   ])
+
+  // 처음에 localStorage에서 userName과 tasks 불러오기
+  useEffect(() => {
+    // TODO: setTasks(localStorage.getItem('tasks'))
+    // TODO: setTasks(localStorage.getItem('userName'))
+  }, [])
+
+  // Tasks 업데이트할 때 localStorage도 업데이트
+  useEffect(() => {
+    localStorage.setItem('userName', userName)
+    localStorage.setItem('tasks', tasks)
+  }, [userName, tasks])
 
   return (
     <div className={styles.app}>
