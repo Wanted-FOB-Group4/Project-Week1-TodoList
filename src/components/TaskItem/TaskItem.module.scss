@@ -1,0 +1,40 @@
+@use '/src/styles/constants/colors';
+
+li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+  background-color: colors.$WHITE;
+  border-radius: 12px;
+}
+
+.doneCircle {
+  width: 24px;
+  height: 24px;
+  border: 2px solid;
+  border-radius: 100%;
+
+  $COLOR_PERSONAL: #106af9;
+  $COLOR_BUSINESS: #e100ff;
+
+  &.personal {
+    border-color: $COLOR_PERSONAL;
+
+    &.done {
+      background-color: $COLOR_PERSONAL;
+    }
+  }
+
+  &.business {
+    border-color: $COLOR_BUSINESS;
+
+    &.done {
+      background-color: $COLOR_BUSINESS;
+    }
+  }
+}
+
+.done {
+  text-decoration: line-through;
+}
