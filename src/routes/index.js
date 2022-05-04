@@ -28,7 +28,7 @@ function App() {
         <main>
           <WelcomeMessage userName={userName} />
           <Categories />
-          <Tasks tasks={tasks} />
+          <Tasks tasks={tasks} setTasks={setTasks} />
         </main>
       </div>
     </div>
