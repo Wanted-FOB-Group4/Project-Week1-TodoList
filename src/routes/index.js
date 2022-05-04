@@ -22,11 +22,15 @@ function App() {
   ])
 
   return (
-    <div className={styles.main}>
-      <Header />
-      <WelcomeMessage userName={userName} />
-      <Categories />
-      <Tasks tasks={tasks} />
+    <div className={styles.app}>
+      <div className={styles.container}>
+        <Header />
+        <main>
+          <WelcomeMessage userName={userName} />
+          <Categories />
+          <Tasks tasks={tasks} />
+        </main>
+      </div>
     </div>
   )
 }
