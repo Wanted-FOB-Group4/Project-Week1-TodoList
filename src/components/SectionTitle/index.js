@@ -1,6 +1,8 @@
-// eslint-disable-next-line react/prop-types
+/* eslint-disable react/prop-types */
+import './SectionTitle.scss'
+
 function SectionTitle({ title }) {
-  return <div>{title}</div>
+  return <h3>{title}</h3>
 }
 
 export default SectionTitle
