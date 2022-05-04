@@ -5,9 +5,11 @@ function MenuProfile() {
     <div className={styles.profileDiv}>
       <div className={styles.profileSect}>
         <img src='logo192.png' alt='profilePic' />
-        <h1 className='nickname'>TestNickname</h1>
+        <h1>Joy Mitchell</h1>
       </div>
-      <button type='button'>{'<'}</button>
+      <button type='button' className={styles.buttonWrapper}>
+        {'<'}
+      </button>
     </div>
   )
 }
