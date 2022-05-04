@@ -1,12 +1,7 @@
-import { Route, Routes } from 'react-router-dom'
-import MainPage from './MainPage'
+import styles from './Routes.module.scss'
 
 function App() {
-  return (
-    <Routes>
-      <Route path='/' element={<MainPage />} />
-    </Routes>
-  )
+  return <div className={styles.main}>메인</div>
 }
 
 export default App
