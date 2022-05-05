@@ -5,13 +5,13 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: colors.$BACKGROUND;
+  background-color: colors.$OUTSIDE;
 }
 
 .container {
   width: 360px;
   height: 720px;
   padding: 60px 40px 40px;
-  background-color: colors.$WHITE;
+  background-color: colors.$BACKGROUND;
   border-radius: 60px;
 }

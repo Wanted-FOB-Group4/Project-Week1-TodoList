@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import styles from './Routes.module.scss'
 
 import Header from '../components/Header'
@@ -11,6 +11,8 @@ import Tasks from '../components/Tasks'
 
 function App() {
   const [userName, setUserName] = useState('Joy')
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -21,12 +23,21 @@ function App() {
     },
   ])
 
+  const handleMenuBtnClick = useCallback(() => {
+    setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen)
+  }, [setIsMenuOpen])
+
+  // TODO: 메뉴 컴포넌트 props로 내려받을 수 있도록 작업
+  const handleMenuCloseBtnClick = useCallback(() => {
+    setIsMenuOpen(false)
+  }, [])
+
   return (
     <div className={styles.app}>
       <div className={styles.container}>
-        <Header />
+        <Header onMenuBtnClick={handleMenuBtnClick} tasks={tasks} />
         <main>
-          <WelcomeMessage userName={userName} />
+          <WelcomeMessage name={userName} />
           <Categories />
           <Tasks tasks={tasks} />
         </main>
