@@ -48,14 +48,29 @@
     .categoryProgressTrack {
       height: 5px;
       border-radius: 3px 0 0 3px;
+      animation: track 1.5s ease;
+
+      @keyframes track {
+        0% {
+          width: 0;
+        }
+      }
     }
 
     .categoryProgressThumb {
       position: absolute;
       top: -5px;
+      left: 0;
       width: 4px;
       height: 10px;
       border-radius: 30% 30% 0 0;
+      animation: slide 1.5s ease;
+
+      @keyframes slide {
+        0% {
+          left: 0;
+        }
+      }
     }
 
     .personal {
