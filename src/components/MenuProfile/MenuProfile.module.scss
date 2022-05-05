@@ -27,7 +27,7 @@
   img {
     position: absolute;
     width: 3.7rem;
-    background-color: #ffffff;
+    background-color: colors.$WHITE;
     border-radius: 50%;
   }
 
@@ -48,7 +48,7 @@
   width: 2.3rem;
   height: 2.3rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 100%);
+  color: colors.$WHITE;
   border: 1.5px solid rgba(255, 255, 255, 30%);
   border-radius: 50%;
 
@@ -57,6 +57,6 @@
   }
 
   polygon {
-    fill: rgba(255, 255, 255, 100%);
+    fill: colors.$WHITE;
   }
 }
