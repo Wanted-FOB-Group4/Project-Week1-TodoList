@@ -2,6 +2,7 @@ import styles from './MenuProfile.module.scss'
 
 import { CircularProgressbar } from 'react-circular-progressbar'
 import CIRCLE_STYLE from './progressBarStyle'
+import ArrowSvg from './ArrowSvg'
 
 // eslint-disable-next-line react/prop-types
 function MenuProfile({ name, picSrc }) {
@@ -15,7 +16,7 @@ function MenuProfile({ name, picSrc }) {
         <h1>{name}</h1>
       </div>
       <button type='button' className={styles.buttonWrapper}>
-        {'<'}
+        <ArrowSvg />
       </button>
     </div>
   )
