@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { PencilImage } from '../../assets/svgs'
 import styles from './WelcomeMessage.module.scss'
 import classnames from 'classnames'
@@ -10,7 +10,13 @@ function WelcomeMessage({ name }) {
 
   const nameInputRef = useRef(null)
 
-  const handleModifyBtnClick = () => {
+  const handleModifyBtnClick = useCallback(() => {
+    if (nameInput === '') {
+      alert('이름을 입력해주세요.')
+      nameInputRef.current.focus()
+      return
+    }
+
     setIsNameInputOpen((prevIsNameInputOpen) => !prevIsNameInputOpen)
 
     if (!isNameInputOpen) {
@@ -18,17 +24,11 @@ function WelcomeMessage({ name }) {
         nameInputRef.current.focus()
       }, 10)
     }
+  }, [nameInput, isNameInputOpen])
 
-    if (nameInput === '') {
-      alert('이름을 입력해주세요.')
-      setIsNameInputOpen(true)
-      nameInputRef.current.focus()
-    }
-  }
-
-  const handleMessageInputChange = (e) => {
+  const handleMessageInputChange = useCallback((e) => {
     setNameInput(e.currentTarget.value)
-  }
+  }, [])
 
   return (
     <section className={styles.messageSection}>
