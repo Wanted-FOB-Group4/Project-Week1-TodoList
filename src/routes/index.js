@@ -10,6 +10,19 @@ import Tasks from '../components/Tasks'
 
 function App() {
   const [userName, setUserName] = useState('Joy')
+  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [categories, setCategories] = useState([
+    {
+      name: 'Personal',
+      isDone: 15,
+      total: 30,
+    },
+    {
+      name: 'Business',
+      isDone: 10,
+      total: 40,
+    },
+  ])
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -52,7 +65,7 @@ function App() {
         <Header />
         <main>
           <WelcomeMessage userName={userName} />
-          <Categories />
+          <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
           <Tasks tasks={tasks} setTasks={setTasks} />
         </main>
       </div>
