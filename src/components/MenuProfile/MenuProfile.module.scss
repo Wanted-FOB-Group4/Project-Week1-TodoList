@@ -1,0 +1,62 @@
+@use '/src/styles/constants/colors';
+
+.profileDiv {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 1rem;
+}
+
+.profileSect {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  width: 50%;
+  padding: 1rem;
+
+  .imageDiv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    position: absolute;
+    width: 3.7rem;
+    background-color: colors.$WHITE;
+    border-radius: 50%;
+  }
+
+  h1 {
+    width: 100%;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: colors.$WHITE;
+    letter-spacing: 0.1px;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  font-weight: 700;
+  color: colors.$WHITE;
+  border: 1.5px solid rgba(255, 255, 255, 30%);
+  border-radius: 50%;
+
+  svg {
+    width: 0.5rem;
+  }
+
+  polygon {
+    fill: colors.$WHITE;
+  }
+}
