@@ -40,8 +40,8 @@ import styles from './Categories.module.scss'
 
 const CATEGORY_DATA = {
   Personal: {
-    isDone: 20,
-    isNotDone: 20,
+    isDone: 15,
+    isNotDone: 15,
   },
   Business: {
     isDone: 10,
