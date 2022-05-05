@@ -4,7 +4,7 @@ import { useState } from 'react'
 import SwipeableListItem, { ActionAnimations } from './SwipeableItem'
 import SwipeContent from './SwipeContent'
 
-function SwipeItem({ children }) {
+function SwipeItem({ children, onSwipeLeft }) {
   const [triggeredItemAction, triggerItemAction] = useState('None')
   const [swipeProgress, handleSwipeProgress] = useState()
   const [swipeAction, handleSwipeAction] = useState('None')
@@ -15,7 +15,11 @@ function SwipeItem({ children }) {
   })
 
   const swipeLeftOptions = (name) => ({
-    content: <SwipeContent label='삭제' position='right' />,
+    content: (
+      <SwipeContent label='삭제' position='right'>
+        {children}
+      </SwipeContent>
+    ),
     action: () => triggerItemAction(`Swipe left action on "${name}"`),
   })
 
@@ -27,6 +31,7 @@ function SwipeItem({ children }) {
   const handleSwipeEnd = () => {
     handleSwipeAction('Swipe ended')
     handleSwipeProgress()
+    onSwipeLeft()
   }
 
   return (

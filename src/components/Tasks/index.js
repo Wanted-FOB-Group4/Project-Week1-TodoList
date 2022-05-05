@@ -2,6 +2,7 @@
 
 import SectionTitle from '../SectionTitle'
 import styles from './Tasks.module.scss'
+import Swipe from '../Swipe'
 import TaskItem from '../TaskItem'
 
 function Tasks({ tasks, setTasks }) {
@@ -9,7 +10,7 @@ function Tasks({ tasks, setTasks }) {
     setTasks((prevTasks) => prevTasks.map((task) => (task.id === id ? { ...task, isDone: !task.isDone } : task)))
   }
 
-  const handleClickDeleteButton = (id) => {
+  const handleSwipeLeftTask = (id) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id))
   }
 
@@ -19,14 +20,17 @@ function Tasks({ tasks, setTasks }) {
       {tasks.length ? (
         <ul className={styles.taskList}>
           {tasks.map(({ id, isDone, category, content }) => (
-            <TaskItem
-              key={`task-${id}`}
-              isDone={isDone}
-              category={category}
-              content={content}
-              onToggle={() => handleToggleTask(id)}
-              onClick={() => handleClickDeleteButton(id)}
-            />
+            // TODO: 스와이프 후 딜레이, undo 할 수 있도록
+            // TODO: 스와이프 디자인
+            <Swipe onSwipeLeft={() => handleSwipeLeftTask(id)}>
+              <TaskItem
+                key={`task-${id}`}
+                isDone={isDone}
+                category={category}
+                content={content}
+                onToggle={() => handleToggleTask(id)}
+              />
+            </Swipe>
           ))}
         </ul>
       ) : (

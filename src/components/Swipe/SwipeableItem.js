@@ -22,7 +22,7 @@ const DragDirection = {
 
 const FPS_INTERVAL = 1000 / 60
 
-class SwipeableListItem extends PureComponent {
+class SwipeableItem extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -436,4 +436,4 @@ class SwipeableListItem extends PureComponent {
   }
 }
 
-export default SwipeableListItem
+export default SwipeableItem
