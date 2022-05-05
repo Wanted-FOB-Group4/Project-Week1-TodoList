@@ -6,11 +6,11 @@ import TaskItem from '../TaskItem'
 
 function Tasks({ tasks, setTasks }) {
   const handleToggleTask = (id) => {
-    setTasks((_) => tasks.map((task) => (task.id === id ? { ...task, isDone: !task.isDone } : task)))
+    setTasks((prevTasks) => prevTasks.map((task) => (task.id === id ? { ...task, isDone: !task.isDone } : task)))
   }
 
   const handleClickDeleteButton = (id) => {
-    setTasks((_) => tasks.filter((task) => task.id !== id))
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id))
   }
 
   return (
