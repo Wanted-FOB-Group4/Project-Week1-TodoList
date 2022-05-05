@@ -1,4 +1,5 @@
 import styles from './Categories.module.scss'
+import SectionTitle from '../SectionTitle'
 
 // const TASKS = [
 //   {
@@ -53,7 +54,7 @@ function Categories() {
   const categoryData = CATEGORY_DATA
   return (
     <div className={styles.container}>
-      <h1 className={styles.sectionTitle}>CATEGORIES</h1>
+      <SectionTitle title='CATEGORIES' />
       <ul className={styles.wrapper}>
         {Object.keys(categoryData).map((key) => {
           const color = key === 'Personal' ? 'pink' : 'blue'
