@@ -14,9 +14,18 @@
   width: 50%;
   padding: 1rem;
 
+  .imageDiv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+  }
+
   img {
-    width: 4rem;
-    margin-bottom: 2rem;
+    position: absolute;
+    width: 3.7rem;
     background-color: #ffffff;
     border-radius: 50%;
   }
