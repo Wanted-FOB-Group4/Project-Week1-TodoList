@@ -13,6 +13,11 @@ function MenuProfile({ name, picSrc, todoMax, todoCount }) {
     setPercentage((todoCount * 100) / todoMax)
   }, [todoMax, todoCount])
 
+  const handleBtnClick = () => {
+    console.log('clicked')
+    // 버튼 클릭 시 메뉴창 닫는 이벤트 추가
+  }
+
   return (
     <div className={styles.profileDiv}>
       <div className={styles.profileSect}>
@@ -22,7 +27,7 @@ function MenuProfile({ name, picSrc, todoMax, todoCount }) {
         </div>
         <h1>{name}</h1>
       </div>
-      <button type='button' className={styles.buttonWrapper}>
+      <button type='button' className={styles.buttonWrapper} onClick={handleBtnClick}>
         <ArrowSvg />
       </button>
     </div>
