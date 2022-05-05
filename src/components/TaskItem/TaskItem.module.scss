@@ -15,22 +15,19 @@ li {
   border: 2px solid;
   border-radius: 100%;
 
-  $COLOR_PERSONAL: #106af9;
-  $COLOR_BUSINESS: #e100ff;
-
   &.personal {
-    border-color: $COLOR_PERSONAL;
+    border-color: colors.$COLOR_PERSONAL;
 
     &.done {
-      background-color: $COLOR_PERSONAL;
+      background-color: colors.$COLOR_PERSONAL;
     }
   }
 
   &.business {
-    border-color: $COLOR_BUSINESS;
+    border-color: colors.$COLOR_BUSINESS;
 
     &.done {
-      background-color: $COLOR_BUSINESS;
+      background-color: colors.$COLOR_BUSINESS;
     }
   }
 }
