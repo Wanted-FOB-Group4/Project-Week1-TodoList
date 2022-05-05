@@ -21,6 +21,7 @@
     justify-content: center;
     width: 5rem;
     height: 5rem;
+    margin-bottom: 1rem;
   }
 
   img {
@@ -41,10 +42,21 @@
 }
 
 .buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2.3rem;
   height: 2.3rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 100%);
   border: 1px solid rgba(255, 255, 255, 50%);
   border-radius: 50%;
+
+  svg {
+    width: 0.5rem;
+  }
+
+  polygon {
+    fill: rgba(255, 255, 255, 100%);
+  }
 }
