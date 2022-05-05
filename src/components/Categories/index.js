@@ -13,7 +13,7 @@ function Categories({ categories, setSelectedCategory }) {
         {categories.map(({ name, isDone, total }) => {
           const tasksProgress = isDone / total
           return (
-            <li className={styles.categoryBox} key={name}>
+            <li className={styles.categoryBox} key={`category-${name}`}>
               <button type='button' onClick={() => handleCategoryChange(name)}>
                 <p className={styles.categoryCount}>{total} tasks</p>
                 <p className={styles.categoryTitle}>{name}</p>

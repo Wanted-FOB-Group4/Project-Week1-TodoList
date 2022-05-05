@@ -43,16 +43,19 @@
     height: 5px;
     margin-top: 10px;
     background-color: colors.$GRAYE;
+    border-radius: 3px;
 
     .categoryProgressTrack {
       height: 5px;
+      border-radius: 3px 0 0 3px;
     }
 
     .categoryProgressThumb {
       position: absolute;
       top: -5px;
-      width: 2px;
+      width: 4px;
       height: 10px;
+      border-radius: 30% 30% 0 0;
     }
 
     .personal {
@@ -61,6 +64,10 @@
 
     .business {
       background-color: colors.$COLOR_BUSINESS;
+    }
+
+    .all {
+      background-color: colors.$COLOR_ALL;
     }
   }
 }

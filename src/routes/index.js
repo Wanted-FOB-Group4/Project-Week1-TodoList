@@ -10,8 +10,13 @@ import Tasks from '../components/Tasks'
 
 function App() {
   const [userName, setUserName] = useState('Joy')
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [selectedCategory, setSelectedCategory] = useState('All')
   const [categories, setCategories] = useState([
+    {
+      name: 'All',
+      isDone: 25,
+      total: 70,
+    },
     {
       name: 'Personal',
       isDone: 15,
