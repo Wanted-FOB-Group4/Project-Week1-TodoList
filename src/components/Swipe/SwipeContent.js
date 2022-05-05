@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import './SwipeContent.scss'
 
 function SwipeContent({ label, position }) {

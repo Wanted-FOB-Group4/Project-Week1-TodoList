@@ -1,7 +1,6 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable react/sort-comp */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
 import { PureComponent } from 'react'
 
 import './SwipeableItem.scss'

@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import SectionTitle from '../SectionTitle'
 import styles from './Tasks.module.scss'
 import Swipe from '../Swipe'

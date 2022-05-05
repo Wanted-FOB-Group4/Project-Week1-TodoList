@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import './SectionTitle.scss'
 
 function SectionTitle({ title }) {
