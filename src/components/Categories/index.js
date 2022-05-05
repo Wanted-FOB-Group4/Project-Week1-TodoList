@@ -57,7 +57,6 @@ function Categories() {
       <SectionTitle title='CATEGORIES' />
       <ul className={styles.wrapper}>
         {Object.keys(categoryData).map((key) => {
-          const color = key === 'Personal' ? 'pink' : 'blue'
           const tasksSum = categoryData[key].isDone + categoryData[key].isNotDone
           const tasksProgress = categoryData[key].isDone / tasksSum
           return (
@@ -67,11 +66,11 @@ function Categories() {
                 <p className={styles.categoryTitle}>{key}</p>
                 <div className={styles.categoryProgress}>
                   <div
-                    className={`${styles.categoryProgressTrack} ${styles[color]}`}
+                    className={`${styles.categoryProgressTrack} ${styles[key.toLowerCase()]}`}
                     style={{ width: `${tasksProgress * 100}%` }}
                   />
                   <div
-                    className={`${styles.categoryProgressThumb} ${styles[color]}`}
+                    className={`${styles.categoryProgressThumb} ${styles[key.toLowerCase()]}`}
                     style={{ left: `${tasksProgress * 100}%` }}
                   />
                 </div>
