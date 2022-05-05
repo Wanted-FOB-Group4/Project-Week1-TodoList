@@ -1,1 +1,5 @@
 export { ReactComponent as LogoImage } from './logo.svg'
+export { ReactComponent as ChartIcon } from './chart.svg'
+export { ReactComponent as CategoryIcon } from './category.svg'
+export { ReactComponent as SettingIcon } from './setting.svg'
+export { ReactComponent as BookMarkIcon } from './bookmark.svg'
