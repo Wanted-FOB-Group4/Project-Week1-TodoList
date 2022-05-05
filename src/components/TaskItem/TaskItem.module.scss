@@ -1,0 +1,37 @@
+@use '/src/styles/constants/colors';
+
+li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+  background-color: colors.$WHITE;
+  border-radius: 12px;
+}
+
+.doneCircle {
+  width: 24px;
+  height: 24px;
+  border: 2px solid;
+  border-radius: 100%;
+
+  &.personal {
+    border-color: colors.$COLOR_PERSONAL;
+
+    &.done {
+      background-color: colors.$COLOR_PERSONAL;
+    }
+  }
+
+  &.business {
+    border-color: colors.$COLOR_BUSINESS;
+
+    &.done {
+      background-color: colors.$COLOR_BUSINESS;
+    }
+  }
+}
+
+.done {
+  text-decoration: line-through;
+}
