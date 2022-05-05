@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
 import classNames from 'classnames'
 import styles from './TaskItem.module.scss'
 
-function TaskItem({ isDone, category, content, onToggle, onClick }) {
+function TaskItem({ isDone, category, content, onToggle }) {
   return (
     <li>
       <button
@@ -16,9 +15,6 @@ function TaskItem({ isDone, category, content, onToggle, onClick }) {
         onClick={onToggle}
       />
       <div className={classNames(isDone ? styles.done : '')}>{content}</div>
-      <button type='button' onClick={onClick}>
-        삭제
-      </button>
     </li>
   )
 }
