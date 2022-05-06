@@ -1,17 +1,19 @@
-import ModalPortal from './Portal'
-import styles from './BigBtn.module.scss'
-
+import ModalPortal from './ModalPortal'
+import styles from './Modal.module.scss'
+import CategoryModal from '../CategoryModal/CategoryModal'
 
 // eslint-disable-next-line react/prop-types
 function Modal({ onClose, classname }) {
+  const onModalClick = () => {}
   return (
     <ModalPortal>
-      <Background className={`${styles.backgound} ${classname ? "activ" : ""}`}>
-        <Content className={styles.content}>코드</Content>
+      <div className={`${styles.backgound} ${classname ? 'activ' : ''}`}>
+        <CategoryModal onModalClick={onModalClick} />
+        <div className={styles.content}>코드</div>
         <button type='button' onClick={onClose}>
           닫기
         </button>
-      </Background>
+      </div>
     </ModalPortal>
   )
 }
@@ -31,5 +33,3 @@ function Modal({ onClose, classname }) {
 // {modalOn && <Modal onClose={handleModal} classname={classname} />}
 
 export default Modal
-
-
