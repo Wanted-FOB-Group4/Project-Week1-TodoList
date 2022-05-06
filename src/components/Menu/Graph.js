@@ -14,8 +14,8 @@ import { useEffect, useState } from 'react'
 //   { x: 9, y: 5 },
 // ]
 
-function Graph({ isRendered, data }) {
-  // isRendered : 메뉴가 열린 상태 판단 (boolean)
+function Graph({ isMenuOpen, data }) {
+  // isMenuOpen : 메뉴가 열린 상태 판단 (boolean)
   // data : 그래프에 들어갈 데이터
 
   const [graphData, setGraphData] = useState(data)
@@ -35,7 +35,7 @@ function Graph({ isRendered, data }) {
 
   return (
     <div className={styles.graphContainer}>
-      {isRendered && (
+      {isMenuOpen && (
         <VictoryChart animate={{ duration: 1000 }} containerComponent={<VictoryContainer />} width={500} height={300}>
           <VictoryLine
             data={graphData}
