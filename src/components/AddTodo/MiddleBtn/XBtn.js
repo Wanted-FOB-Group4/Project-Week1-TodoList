@@ -1,14 +1,19 @@
-import MiddleBtn3 from "./MiddleBtn3"
+import MiddleBtn from "./MiddleBtn"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
-import styles from './MiddleBtn3.module.scss'
+import styles from './MiddleBtn.module.scss'
 
-function XBtn () {
+function XBtn ({ onClose }) {
   return (
-    <MiddleBtn3 shape='circle'>
-      <div className={styles.xicon}><FontAwesomeIcon icon={faX}/></div>
-    </MiddleBtn3>
+    <MiddleBtn shape='circle'>
+      { /* eslint-disable-next-line jsx-a11y/no-static-element-interactions */ }
+      <div className={styles.xicon} onClick={onClose}><FontAwesomeIcon icon={faX}/></div>
+    </MiddleBtn>
   )
+}
+
+XBtn.propTypes = {
+  onClose: Function
 }
 
 export default XBtn

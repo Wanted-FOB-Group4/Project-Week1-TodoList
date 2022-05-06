@@ -1,12 +1,19 @@
-import MiddleBtn3 from "./MiddleBtn3"
-import styles from './MiddleBtn3.module.scss'
+import MiddleBtn from "./MiddleBtn"
+import styles from './MiddleBtn.module.scss'
 
-function CategoryBtn () {
+function CategoryBtn ({onModalClick}) {
   return (
-    <MiddleBtn3 shape='circle'>
-      <div className={styles.category} />
-    </MiddleBtn3>
+    <MiddleBtn shape='circle'>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+      <div className={styles.background} onClick={onModalClick}>
+        <div className={styles.category} />
+      </div>
+    </MiddleBtn>
   )
+}
+
+CategoryBtn.propTypes = {
+  onModalClick: Function
 }
 
 export default CategoryBtn
