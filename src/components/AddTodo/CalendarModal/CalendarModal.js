@@ -34,7 +34,7 @@ function CalendarModal(setSelectDate) {
   }
 
   return ( 
-    <span><DatePicker className={styles.date} locale="ko" dateFormat='yyyy/MM/dd' selected={startDate} onSelect={setSelectDates} onChange={date => handleDateChange(date)} /></span> 
+    <span><DatePicker className={styles.date} dateFormat='yyyy/MM/dd' selected={startDate} onSelect={setSelectDates} onChange={date => handleDateChange(date)} /></span> 
   )
 }
 
