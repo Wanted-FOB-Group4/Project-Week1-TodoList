@@ -14,6 +14,7 @@
     display: flex;
     gap: 12px;
     align-items: center;
+    width: 100%;
     padding: 16px;
     background-color: colors.$WHITE;
     border-radius: 12px;
@@ -47,5 +48,17 @@
 
   .done {
     text-decoration: line-through;
+  }
+
+  .deleteButton {
+    display: flex;
+    align-items: center;
+
+    .trashIcon {
+      width: 20px;
+      height: 20px;
+      margin-left: 20px;
+      fill: colors.$GRAYA;
+    }
   }
 }
