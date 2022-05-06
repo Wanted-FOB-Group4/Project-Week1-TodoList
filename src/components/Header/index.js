@@ -1,33 +1,30 @@
 /* eslint-disable react/prop-types */
+import { useState, useRef, useEffect } from 'react'
 import styles from './Header.module.scss'
 import { ArrowLeftImage, BellImage, SearchImage } from '../../assets/svgs'
-import { useState, useCallback, useRef } from 'react'
-import classnames from 'classnames'
 
-function Header({ onMenuBtnClick, tasks }) {
+function Header({ onMenuBtnClick, onSearchInputChange }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   const searchInputRef = useRef(null)
 
-  const searchResults =
-    searchInput === '' ? [] : tasks.filter((task) => task.content.toLowerCase().includes(searchInput.toLowerCase()))
+  useEffect(() => {
+    searchInputRef.current.focus()
+  }, [isSearchOpen])
 
-  const handleSearchOpenBtnClick = useCallback(() => {
-    setIsSearchOpen(true)
+  const handleSearchBtnClick = () => {
+    setIsSearchOpen((prevIsSearchOpen) => !prevIsSearchOpen)
 
-    setTimeout(() => {
-      searchInputRef.current.focus()
-    }, 10)
-  }, [])
+    if (searchInput.length > 0) {
+      onSearchInputChange('')
+      setSearchInput('')
+    }
+  }
 
-  const handleSearchCloseBtnClick = useCallback(() => {
-    setIsSearchOpen(false)
-    setSearchInput('')
-  }, [])
-
-  const handleSearchInputChange = useCallback((e) => {
+  const handleInputChange = (e) => {
+    onSearchInputChange(e.currentTarget.value)
     setSearchInput(e.currentTarget.value)
-  }, [])
+  }
 
   return (
     <header className={styles.header}>
@@ -42,12 +39,7 @@ function Header({ onMenuBtnClick, tasks }) {
         </button>
 
         <div className={styles.btnWrapper}>
-          <button
-            type='button'
-            className={styles.searchBtn}
-            onClick={handleSearchOpenBtnClick}
-            aria-label='Search Open'
-          >
+          <button type='button' className={styles.searchBtn} onClick={handleSearchBtnClick} aria-label='Search Open'>
             <SearchImage className={styles.search} />
           </button>
           <button type='button' className={styles.alarmBtn} aria-label='Alarm'>
@@ -58,7 +50,7 @@ function Header({ onMenuBtnClick, tasks }) {
 
       <div className={isSearchOpen ? styles.searchTotalWrapper : styles.hidden}>
         <div className={styles.searchInputWrapper}>
-          <button type='button' className={styles.searchCloseBtn} onClick={handleSearchCloseBtnClick}>
+          <button type='button' className={styles.searchCloseBtn} onClick={handleSearchBtnClick}>
             <ArrowLeftImage />
           </button>
 
@@ -72,28 +64,9 @@ function Header({ onMenuBtnClick, tasks }) {
             placeholder='Task Search'
             value={searchInput}
             ref={searchInputRef}
-            onChange={handleSearchInputChange}
+            onChange={handleInputChange}
           />
         </div>
-
-        <ul className={styles.searchResultWrapper}>
-          {searchResults.length > 0
-            ? searchResults.map((result) => {
-                return (
-                  <li
-                    key={`search_task_item_${result.id}`}
-                    className={classnames(
-                      styles.searchItem,
-                      { [styles.personal]: result.category === 'personal' },
-                      { [styles.business]: result.category === 'business' }
-                    )}
-                  >
-                    {result.content}
-                  </li>
-                )
-              })
-            : ''}
-        </ul>
       </div>
     </header>
   )

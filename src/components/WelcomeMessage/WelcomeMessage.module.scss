@@ -25,7 +25,8 @@
     }
   }
 
-  .modifyBtn {
+  .modifyBtn,
+  .saveBtn {
     height: 100%;
     padding-left: 4px;
 
@@ -33,10 +34,13 @@
       width: 26px;
       height: 20px;
       margin: 15px 0;
-      opacity: 0.3;
-      fill: #8290c4;
+      fill: colors.$COLOR_ICON;
 
       &.modify {
+        opacity: 0.3;
+      }
+
+      &.save {
         opacity: 1;
       }
     }

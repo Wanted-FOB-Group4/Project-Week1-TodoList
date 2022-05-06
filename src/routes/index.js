@@ -11,6 +11,7 @@ import Tasks from '../components/Tasks'
 function App() {
   const [userName, setUserName] = useState('Joy')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [searchInput, setSearchInput] = useState('')
 
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [categories, setCategories] = useState([
@@ -58,10 +59,13 @@ function App() {
     setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen)
   }, [setIsMenuOpen])
 
-  // TODO: 메뉴 컴포넌트 props로 내려받을 수 있도록 작업
-  const handleMenuCloseBtnClick = useCallback(() => {
-    setIsMenuOpen(false)
-  }, [])
+  const handleUserNameChange = (nameChanged) => {
+    setUserName(nameChanged)
+  }
+
+  const handleSearchInputChange = (searchChanged) => {
+    setSearchInput(searchChanged)
+  }
 
   // 처음에 localStorage에서 userName과 tasks 불러오기
   useEffect(() => {
@@ -78,11 +82,15 @@ function App() {
   return (
     <div className={styles.app}>
       <div className={styles.container}>
-        <Header onMenuBtnClick={handleMenuBtnClick} tasks={tasks} />
+        <Header
+          onMenuBtnClick={handleMenuBtnClick}
+          searchInput={searchInput}
+          onSearchInputChange={handleSearchInputChange}
+        />
         <main>
-          <WelcomeMessage name={userName} />
+          <WelcomeMessage name={userName} onUserNameChange={handleUserNameChange} />
           <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
-          <Tasks tasks={tasks} setTasks={setTasks} />
+          <Tasks tasks={tasks} setTasks={setTasks} searchInput={searchInput} />
         </main>
       </div>
     </div>

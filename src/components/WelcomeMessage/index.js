@@ -1,34 +1,36 @@
 /* eslint-disable react/prop-types */
-import { useCallback, useRef, useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { PencilImage } from '../../assets/svgs'
 import styles from './WelcomeMessage.module.scss'
 import classnames from 'classnames'
 
-function WelcomeMessage({ name }) {
+function WelcomeMessage({ name, onUserNameChange }) {
   const [nameInput, setNameInput] = useState(name)
   const [isNameInputOpen, setIsNameInputOpen] = useState(false)
-
   const nameInputRef = useRef(null)
 
-  const handleModifyBtnClick = useCallback(() => {
+  useEffect(() => {
+    nameInputRef.current.focus()
+  }, [isNameInputOpen])
+
+  const handleNameInputChange = (e) => {
+    setNameInput(e.currentTarget.value)
+  }
+
+  const handleModifyBtnClick = () => {
+    setIsNameInputOpen((prevIsNameInputOpen) => !prevIsNameInputOpen)
+  }
+
+  const handleSaveBtnClick = () => {
     if (nameInput === '') {
-      alert('이름을 입력해주세요.')
+      alert('이름을 입력해 주세요.')
       nameInputRef.current.focus()
       return
     }
 
+    onUserNameChange(nameInput)
     setIsNameInputOpen((prevIsNameInputOpen) => !prevIsNameInputOpen)
-
-    if (!isNameInputOpen) {
-      setTimeout(() => {
-        nameInputRef.current.focus()
-      }, 10)
-    }
-  }, [nameInput, isNameInputOpen])
-
-  const handleNameInputChange = useCallback((e) => {
-    setNameInput(e.currentTarget.value)
-  }, [])
+  }
 
   return (
     <section className={styles.messageSection}>
@@ -52,9 +54,15 @@ function WelcomeMessage({ name }) {
         />
       </div>
 
-      <button type='button' onClick={handleModifyBtnClick} className={styles.modifyBtn} aria-label='Modify'>
-        <PencilImage className={classnames(styles.pencil, { [styles.modify]: isNameInputOpen })} />
-      </button>
+      {isNameInputOpen ? (
+        <button type='button' onClick={handleSaveBtnClick} className={styles.saveBtn} aria-label='Save'>
+          <PencilImage className={classnames(styles.pencil, styles.save)} />
+        </button>
+      ) : (
+        <button type='button' onClick={handleModifyBtnClick} className={styles.modifyBtn} aria-label='Modify'>
+          <PencilImage className={classnames(styles.pencil, styles.modify)} />
+        </button>
+      )}
     </section>
   )
 }

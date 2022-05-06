@@ -3,7 +3,7 @@ import styles from './Tasks.module.scss'
 import Swipe from '../Swipe'
 import TaskItem from '../TaskItem'
 
-function Tasks({ tasks, setTasks }) {
+function Tasks({ tasks, setTasks, searchInput }) {
   const handleToggleTask = (id) => {
     setTasks((prevTasks) => prevTasks.map((task) => (task.id === id ? { ...task, isDone: !task.isDone } : task)))
   }
@@ -12,12 +12,14 @@ function Tasks({ tasks, setTasks }) {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id))
   }
 
+  const matchTaskContent = (task) => task.content.toLowerCase().includes(searchInput.toLowerCase())
+
   return (
     <div className={styles.container}>
       <SectionTitle title="TODAY'S TASKS" />
       {tasks.length ? (
         <ul className={styles.taskList}>
-          {tasks.map(({ id, isDone, category, content }) => (
+          {tasks.filter(matchTaskContent).map(({ id, isDone, category, content }) => (
             // TODO: 스와이프 후 딜레이, undo 할 수 있도록
             // TODO: 스와이프 디자인
             <Swipe onSwipeLeft={() => handleSwipeLeftTask(id)}>
