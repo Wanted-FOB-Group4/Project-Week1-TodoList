@@ -7,8 +7,10 @@ import classnames from 'classnames'
 function Header({ onMenuBtnClick, tasks }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchInput, setSearchInput] = useState('')
-  const [searchResults, setSearchResults] = useState([])
   const searchInputRef = useRef(null)
+
+  const searchResults =
+    searchInput === '' ? [] : tasks.filter((task) => task.content.toLowerCase().includes(searchInput.toLowerCase()))
 
   const handleSearchOpenBtnClick = useCallback(() => {
     setIsSearchOpen(true)
@@ -16,27 +18,16 @@ function Header({ onMenuBtnClick, tasks }) {
     setTimeout(() => {
       searchInputRef.current.focus()
     }, 10)
-  }, [isSearchOpen])
+  }, [])
 
   const handleSearchCloseBtnClick = useCallback(() => {
     setIsSearchOpen(false)
     setSearchInput('')
-    setSearchResults([])
   }, [])
 
-  const handleSearchInputChange = useCallback(
-    (e) => {
-      setSearchInput(e.currentTarget.value)
-
-      const result =
-        e.currentTarget.value === ''
-          ? []
-          : tasks.filter((task) => task.content.toLowerCase().includes(e.currentTarget.value.toLowerCase()))
-
-      setSearchResults(result)
-    },
-    [searchInput, searchResults]
-  )
+  const handleSearchInputChange = useCallback((e) => {
+    setSearchInput(e.currentTarget.value)
+  }, [])
 
   return (
     <header className={styles.header}>
@@ -51,13 +42,16 @@ function Header({ onMenuBtnClick, tasks }) {
         </button>
 
         <div className={styles.btnWrapper}>
-          <button type='button' className={styles.searchBtn} onClick={handleSearchOpenBtnClick}>
+          <button
+            type='button'
+            className={styles.searchBtn}
+            onClick={handleSearchOpenBtnClick}
+            aria-label='Search Open'
+          >
             <SearchImage className={styles.search} />
-            <span className={styles.visuallyHidden}>검색 열기 버튼</span>
           </button>
-          <button type='button' className={styles.alarmBtn}>
+          <button type='button' className={styles.alarmBtn} aria-label='Alarm'>
             <BellImage className={styles.alarm} />
-            <span className={styles.visuallyHidden}>알람 버튼</span>
           </button>
         </div>
       </nav>

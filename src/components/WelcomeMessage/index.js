@@ -51,9 +51,8 @@ function WelcomeMessage({ name }) {
         />
       </div>
 
-      <button type='button' onClick={handleModifyBtnClick} className={styles.modifyBtn}>
+      <button type='button' onClick={handleModifyBtnClick} className={styles.modifyBtn} aria-label='Modify'>
         <PencilImage className={classnames(styles.pencil, { [styles.modify]: isNameInputOpen })} />
-        <span className={styles.visuallyHidden}>수정 버튼</span>
       </button>
     </section>
   )
