@@ -87,19 +87,18 @@
     z-index: levels.$DROPDOWN;
     display: block;
     width: 100%;
-    background-color: colors.$BACKGROUND;
-  }
 
-  .searchItem {
-    padding: 10px 10px 10px 28px;
-    font-weight: 600;
+    .searchItem {
+      padding: 16px 16px 16px 28px;
+      background: colors.$BACKGROUND;
 
-    &.personal {
-      color: colors.$BLUE;
-    }
+      &.personal {
+        color: colors.$COLOR_PERSONAL;
+      }
 
-    &.business {
-      color: colors.$PINK;
+      &.business {
+        color: colors.$COLOR_BUSINESS;
+      }
     }
   }
 }
