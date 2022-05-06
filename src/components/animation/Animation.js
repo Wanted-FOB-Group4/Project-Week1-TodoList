@@ -16,7 +16,9 @@ function Animation() {
 
   return (
     <div className={styles.menuComponent}>
+      {/* menu component */}
       <motion.div className={styles.todoComponent} variants={todoVariants} animate={isOpen ? 'open' : 'close'}>
+        {/* todo component */}
         <div className={styles.iconWrapper}>
           <button type='button' className={styles.menuIcons} onClick={handleMenuBtn}>
             +
