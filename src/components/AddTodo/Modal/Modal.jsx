@@ -1,14 +1,15 @@
 import ModalPortal from './ModalPortal'
 import styles from './Modal.module.scss'
 import CategoryModal from '../CategoryModal/CategoryModal'
+import classNames from 'classnames'
 
 // eslint-disable-next-line react/prop-types
-function Modal({ onClose, classname }) {
+function Modal({ onClose, active }) {
   const onModalClick = () => {}
   return (
     <ModalPortal>
-      <div className={`${styles.backgound} ${classname ? 'activ' : ''}`}>
-        <CategoryModal onModalClick={onModalClick} />
+      <div className={classNames(styles.backgound)}>
+        {/* <CategoryModal onModalClick={onModalClick} /> */}
         <div className={styles.content}>코드</div>
         <button type='button' onClick={onClose}>
           닫기

@@ -1,12 +1,14 @@
+@use '/src/styles/constants/colors';
+
 .background {
   position: fixed;
-  right: -200px;
-  bottom: -400px;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 0;
-  height: 0;
+  width: 388px;
+  height: 400px;
   overflow: hidden;
   color: colors.$WHITE;
   text-align: center;

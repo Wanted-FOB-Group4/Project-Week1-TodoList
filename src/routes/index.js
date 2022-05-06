@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import styles from './Routes.module.scss'
-
+import BigBtn from '../components/AddTodo/BigBtn/BigBtn'
 import Header from '../components/Header'
 import WelcomeMessage from '../components/WelcomeMessage'
 import Categories from '../components/Categories'
 import Tasks from '../components/Tasks'
+import { PlusIcon } from '../assets/svgs'
+import Modal from '../components/AddTodo/Modal/Modal'
 
 // TODO: Make CreateTaskButton
 
@@ -51,6 +53,24 @@ function App() {
       content: 'This is the third task',
     },
   ])
+  const [modalOn, setModalOn] = useState(false)
+  console.log(`modalOn:${modalOn}`)
+  const [active, setActive] = useState(false)
+  console.log(`active:${active}`)
+  const handleModal = () => {
+    console.log('click!')
+    if (modalOn === true) {
+      setActive((prev) => !prev)
+      setTimeout(() => {
+        setModalOn(!modalOn)
+      }, 1000)
+    } else {
+      setModalOn((prev) => !prev)
+      setTimeout(() => {
+        setActive((prev) => !prev)
+      }, 10)
+    }
+  }
 
   // 처음에 localStorage에서 userName과 tasks 불러오기
   useEffect(() => {
@@ -72,7 +92,11 @@ function App() {
           <WelcomeMessage userName={userName} />
           <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
           <Tasks tasks={tasks} setTasks={setTasks} />
+          {true && <Modal onClose={handleModal} />}
         </main>
+        <BigBtn circle='circle' onClickHandle={handleModal}>
+          <PlusIcon />
+        </BigBtn>
       </div>
     </div>
   )
