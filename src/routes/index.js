@@ -82,11 +82,7 @@ function App() {
   return (
     <div className={styles.app}>
       <div className={styles.container}>
-        <Header
-          onMenuBtnClick={handleMenuBtnClick}
-          searchInput={searchInput}
-          onSearchInputChange={handleSearchInputChange}
-        />
+        <Header onMenuBtnClick={handleMenuBtnClick} onSearchInputChange={handleSearchInputChange} />
         <main>
           <WelcomeMessage name={userName} onUserNameChange={handleUserNameChange} />
           <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
