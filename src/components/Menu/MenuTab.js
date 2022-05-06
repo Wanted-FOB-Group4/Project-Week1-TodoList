@@ -9,8 +9,6 @@ import MenuTabItem from './MenuTabItem'
 //   { id: 'menu_tab_4', icon: <SettingIcon />, title: 'Settings' },
 // ]
 
-// eslint-disable-next-line react/prop-types
-
 function MenuTab({ menuData }) {
   return (
     <nav className={styles.menuTabContainer}>
