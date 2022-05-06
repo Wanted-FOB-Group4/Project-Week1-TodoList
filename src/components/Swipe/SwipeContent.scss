@@ -1,0 +1,24 @@
+@use '/src/styles/constants/colors';
+
+.swipeableListItemContentLeft {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 4px 8px;
+  color: colors.$RED;
+  background-color: colors.$GRAYE;
+}
+
+.swipeableListItemContentRight {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: 4px 8px;
+  color: colors.$WHITE;
+  background-color: colors.$GREEN;
+}
