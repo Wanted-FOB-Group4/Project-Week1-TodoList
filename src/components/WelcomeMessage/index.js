@@ -26,28 +26,29 @@ function WelcomeMessage({ name }) {
     }
   }, [nameInput, isNameInputOpen])
 
-  const handleMessageInputChange = useCallback((e) => {
+  const handleNameInputChange = useCallback((e) => {
     setNameInput(e.currentTarget.value)
   }, [])
 
   return (
     <section className={styles.messageSection}>
       <strong className={styles.message}>
-        <span className={styles.messageDefault}>What&apos;s up,</span> {nameInput} !
+        <span className={styles.messageDefault}>What&apos;s up,</span>
+        {nameInput} !
       </strong>
 
       <div className={isNameInputOpen ? styles.messageInputWrapper : styles.hidden}>
-        <label htmlFor='inputMessage' className={styles.visuallyHidden}>
+        <label htmlFor='inputName' className={styles.visuallyHidden}>
           메세지 입력칸
         </label>
         <input
           type='text'
-          id='inputMessage'
+          id='inputName'
           placeholder='Name'
-          className={styles.messageInput}
+          className={styles.nameInput}
           value={nameInput}
           ref={nameInputRef}
-          onChange={handleMessageInputChange}
+          onChange={handleNameInputChange}
         />
       </div>
 
