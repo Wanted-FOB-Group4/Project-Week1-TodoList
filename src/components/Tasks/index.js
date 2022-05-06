@@ -3,7 +3,7 @@ import styles from './Tasks.module.scss'
 import TaskItem from '../TaskItem'
 import { SwipeableList, SwipeableListItem, SwipeAction, TrailingActions, Type as ListType } from 'react-swipeable-list'
 import 'react-swipeable-list/dist/styles.css'
-import { TrashImage } from '../../assets/svgs'
+import { TrashImage, SmileImage } from '../../assets/svgs'
 
 function Tasks({ tasks, setTasks }) {
   const handleToggleTask = (id) => {
@@ -36,7 +36,11 @@ function Tasks({ tasks, setTasks }) {
           ))}
         </SwipeableList>
       ) : (
-        <div style={{ marginTop: '20px' }}>할 일을 다하다니 부지런하군!</div>
+        <div className={styles.noTaskMessage}>
+          <SmileImage className={styles.smileIcon} />
+          <span>오늘 할 일을 모두 마치셨군요!</span>
+          <span>즐거운 하루 보내세요.</span>
+        </div>
       )}
     </div>
   )
