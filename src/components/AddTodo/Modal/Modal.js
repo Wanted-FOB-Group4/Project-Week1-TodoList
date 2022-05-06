@@ -6,7 +6,7 @@ function Modal ({ onModalClick }) {
   return (
     <ModalPortal>
       { /* eslint-disable-next-line jsx-a11y/no-static-element-interactions */ }
-      <div className={styles.background}>
+      <div className={styles.background} onClick={onModalClick}>
         <div className={styles.content}>
           <CategoryModal onModalClick={onModalClick} />
         </div>
