@@ -7,6 +7,8 @@ import Categories from '../components/Categories'
 import Tasks from '../components/Tasks'
 import { PlusIcon } from '../assets/svgs'
 import Modal from '../components/AddTodo/Modal/Modal'
+import DateBtn from '../components/AddTodo/MiddleBtn/DateBtn'
+import ModalAct from '../components/AddTodo/Modal/ModalAct'
 
 // TODO: Make CreateTaskButton
 
@@ -97,6 +99,7 @@ function App() {
         <BigBtn circle='circle' onClickHandle={handleModal}>
           <PlusIcon />
         </BigBtn>
+        <ModalAct />
       </div>
     </div>
   )
