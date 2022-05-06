@@ -45,7 +45,7 @@
     // "max-lines": ["warn", 150],
     "no-param-reassign": ["error", { "props": false }],
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/prop-types":0,
 
     "no-shadow": "off",
     "no-unused-expressions": ["warn"],
