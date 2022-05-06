@@ -1,5 +1,5 @@
 $BACKGROUND: #ffffff;
-$SHADOW: #bbbbbb;
+$SHADOW: #e6e6e6;
 $BLUE: #156ef6;
 $GRAY: #808691;
 $LIGHTBLUE: #b5c7e2;
@@ -13,7 +13,7 @@ $WHITE: #ebecf0;
   background: $BACKGROUND;
   border: 1px solid $BACKGROUND;
   border-radius: 30px;
-  box-shadow: 1px 1px 10px $SHADOW;
+  box-shadow: 0 0 10px 5px $SHADOW;
 }
 
 .inputbox {
