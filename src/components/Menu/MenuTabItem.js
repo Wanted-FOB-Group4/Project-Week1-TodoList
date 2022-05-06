@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './MenuTab.module.scss'
 
 function MenuTabItem({ icon, title }) {
@@ -10,11 +9,6 @@ function MenuTabItem({ icon, title }) {
       </div>
     </li>
   )
-}
-
-MenuTabItem.propTypes = {
-  icon: React.Component,
-  title: String,
 }
 
 export default MenuTabItem
