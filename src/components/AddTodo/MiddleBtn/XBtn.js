@@ -6,8 +6,7 @@ import styles from './MiddleBtn.module.scss'
 function XBtn({ onClose }) {
   return (
     <MiddleBtn shape='circle' onClose={onClose}>
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-      <div className={styles.xicon}>
+      <div className={styles.xIcon}>
         <FontAwesomeIcon icon={faX} />
       </div>
     </MiddleBtn>
