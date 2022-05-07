@@ -1,0 +1,42 @@
+@use '/src/styles/constants/colors';
+@import '/src/styles/mixins/flexbox';
+
+.settingsPageHeader {
+  @include flexbox(between, center);
+  margin-bottom: 1rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: colors.$SECTION_TITLE;
+    letter-spacing: 0.3px;
+  }
+}
+
+.settingsPageMain {
+  height: 500px;
+
+  form {
+    @include flexbox(between, center);
+    margin: 1rem 0;
+
+    input {
+      padding: 0.5rem 1rem;
+      border: 1px solid colors.$SECTION_TITLE;
+      border-radius: 0.5rem;
+    }
+
+    button {
+      padding: 0.5rem;
+      color: colors.$WHITE;
+      background-color: colors.$MENUTAB_TITLE;
+      border-radius: 0.5rem;
+      transition: opacity 0.2s;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+}
