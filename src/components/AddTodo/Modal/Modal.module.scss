@@ -12,7 +12,7 @@
   text-align: center;
 }
 
-.xbtn {
+.xBtn {
   position: absolute;
   top: 30px;
   right: 30px;
@@ -53,4 +53,33 @@
     background-color: colors.$WHITE;
     border-radius: 60px;
   }
+}
+
+.mainForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+}
+
+.categoryModal {
+  position: absolute;
+  z-index: 10;
+  display: none;
+  width: 260px;
+  height: 220px;
 }
