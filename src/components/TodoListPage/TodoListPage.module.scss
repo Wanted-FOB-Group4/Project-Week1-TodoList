@@ -1,0 +1,30 @@
+@use '/src/styles/constants/colors';
+@import '/src/styles/mixins/flexbox';
+
+.todoListPageHeader {
+  @include flexbox(between, center);
+  margin-bottom: 1rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: colors.$SECTION_TITLE;
+    letter-spacing: 0.3px;
+  }
+
+  .filterIcon {
+    fill: colors.$SECTION_TITLE;
+  }
+}
+
+.todoListPageMain {
+  height: 500px;
+  overflow-y: scroll;
+
+  .todoListPageList {
+    li {
+      height: 4rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
