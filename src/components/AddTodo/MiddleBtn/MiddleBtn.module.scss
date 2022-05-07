@@ -14,19 +14,25 @@ $GRAY: #808691;
   border: 3px solid $BORDER;
 }
 
-.circlebtn {
+.circleBtn {
   @include btnshape;
   width: 48px;
   border-radius: 50%;
 }
 
-.ovalbtn {
+.ovalBtn {
   @include btnshape;
   width: 153px;
   border-radius: 30px;
 }
 
-.background {
+.categoryBtnBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.outerCircle {
   position: relative;
   display: flex;
   align-items: center;
@@ -35,7 +41,7 @@ $GRAY: #808691;
   height: 100%;
   border-radius: 50%;
 
-  .category {
+  .innerCircle {
     position: relative;
     display: flex;
     align-items: center;
@@ -56,20 +62,12 @@ $GRAY: #808691;
   }
 }
 
-.xicon {
+.xIcon {
   font-size: 14px;
 }
 
-.calendaricon {
+.calendarIcon {
   margin-right: 5px;
   font-size: 17px;
   color: $GRAY;
-
-  // &::after {
-  //   padding-left: 10px;
-  //   font-size: 15px;
-  //   font-weight: 500;
-  //   color: $GRAY;
-  //   content: 'Today';
-  // }
 }
