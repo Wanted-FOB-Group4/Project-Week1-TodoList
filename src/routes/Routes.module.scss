@@ -1,5 +1,9 @@
 @use '/src/styles/constants/colors';
 
+.main {
+  padding-top: 50px;
+}
+
 .app {
   display: flex;
   align-items: center;

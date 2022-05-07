@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import WelcomeMessage from '../components/WelcomeMessage'
 import Categories from '../components/Categories'
 import Tasks from '../components/Tasks'
+// import Animation from '../components/animation/Animation'
 
 // TODO: Make CreateTaskButton
 
@@ -77,5 +78,12 @@ function App() {
     </div>
   )
 }
+
+/*
+return (
+    <div className={styles.main}>
+      <Animation />
+      </div>
+      */
 
 export default App

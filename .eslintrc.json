@@ -60,6 +60,7 @@
     //   "warn",
     //   { "argsIgnorePattern": "^_" }
     // ],
+
     "prefer-const": ["warn"],
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "lines-between-class-members": "off",
