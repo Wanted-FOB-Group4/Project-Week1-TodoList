@@ -56,11 +56,8 @@ function App() {
     },
   ])
   const [modalOn, setModalOn] = useState(false)
-  console.log(`modalOn:${modalOn}`)
   const [active, setActive] = useState(false)
-  console.log(`active:${active}`)
   const handleModal = () => {
-    console.log('click!')
     if (modalOn === true) {
       setActive((prev) => !prev)
       setTimeout(() => {
@@ -70,7 +67,7 @@ function App() {
       setModalOn((prev) => !prev)
       setTimeout(() => {
         setActive((prev) => !prev)
-      }, 10)
+      }, 1)
     }
   }
 
@@ -94,12 +91,11 @@ function App() {
           <WelcomeMessage userName={userName} />
           <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
           <Tasks tasks={tasks} setTasks={setTasks} />
-          {true && <Modal onClose={handleModal} />}
+          {modalOn && <Modal onClose={handleModal} active={active} />}
         </main>
         <BigBtn circle='circle' onClickHandle={handleModal}>
           <PlusIcon />
         </BigBtn>
-        <ModalAct />
       </div>
     </div>
   )

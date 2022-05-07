@@ -1,9 +1,9 @@
 @use '/src/styles/constants/colors';
 
 .background {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,15 +12,45 @@
   text-align: center;
 }
 
+.xbtn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
 .content {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 262px;
-  height: 222px;
-  margin-top: 70px;
-  overflow: scroll;
-  background: rgba(0, 0, 0, 7%);
-  border-radius: 30px;
+  width: 360px;
+  height: 720px;
+  padding: 60px 40px 40px;
+  overflow: hidden;
+  background-color: transparent;
+  border-radius: 60px;
+}
+
+.page {
+  position: absolute;
+  right: -300px;
+  bottom: -600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  background-color: #6e6e6e;
+  border-radius: 100%;
+  transition: all 1s ease-out;
+
+  &.active {
+    right: 0;
+    bottom: 0;
+    width: 360px;
+    height: 720px;
+    background-color: colors.$WHITE;
+    border-radius: 60px;
+  }
 }

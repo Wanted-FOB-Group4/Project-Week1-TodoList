@@ -2,22 +2,20 @@ import ModalPortal from './ModalPortal'
 import styles from './Modal.module.scss'
 import CategoryModal from '../CategoryModal/CategoryModal'
 import classNames from 'classnames'
+import XBtn from '../MiddleBtn/XBtn'
 
 // eslint-disable-next-line react/prop-types
-function Modal({ onClose, onModalClick }) {
+function Modal({ onClose, onModalClick, active }) {
   return (
     <ModalPortal>
-      {/* <div className={classNames(styles.backgound)}>
-        <CategoryModal onModalClick={onModalClick} />
-        <div className={styles.content}>코드</div>
-        <button type='button' onClick={onClose}>
-          닫기
-        </button>
-      </div> */}
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-      <div className={styles.background} onClick={onModalClick} >
-        <div className={styles.content}>
-          <CategoryModal onModalClick={onModalClick} />
+      <div className={classNames(styles.background)} onClick={onModalClick}>
+        <div className={classNames(styles.content)}>
+          <div className={classNames(styles.page, { [styles.active]: active })}>
+            <div className={styles.xbtn}>
+              <XBtn onClose={onClose} />
+            </div>
+          </div>
         </div>
       </div>
     </ModalPortal>
