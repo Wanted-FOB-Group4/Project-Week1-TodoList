@@ -67,7 +67,7 @@ function App() {
       setModalOn((prev) => !prev)
       setTimeout(() => {
         setActive((prev) => !prev)
-      }, 10)
+      }, 1)
     }
   }
 

@@ -9,10 +9,13 @@ function Modal({ onClose, onModalClick, active }) {
   return (
     <ModalPortal>
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-      <div className={classNames(styles.background, { [styles.active]: active })} onClick={onModalClick}>
-        <div className={styles.content}>
-          <CategoryModal onModalClick={onModalClick} />
-          <XBtn onClose={onClose} />
+      <div className={classNames(styles.background)} onClick={onModalClick}>
+        <div className={classNames(styles.content)}>
+          <div className={classNames(styles.page, { [styles.active]: active })}>
+            <div className={styles.xbtn}>
+              <XBtn onClose={onClose} />
+            </div>
+          </div>
         </div>
       </div>
     </ModalPortal>
