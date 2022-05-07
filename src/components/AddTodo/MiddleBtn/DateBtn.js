@@ -4,11 +4,11 @@ import CalendarModal from "../CalendarModal/CalendarModal"
 import styles from './MiddleBtn.module.scss'
 import MiddleBtn from "./MiddleBtn"
 
-function DateBtn () {
+function DateBtn ({handleSelectDate}) {
   return (
     <MiddleBtn shape='oval'>
-      <div className={styles.calendaricon}><FontAwesomeIcon icon={faCalendarCheck} /></div>
-      <CalendarModal />
+      <div className={styles.calendarIcon}><FontAwesomeIcon icon={faCalendarCheck} /></div>
+      <CalendarModal handleSelectDate={handleSelectDate}/>
     </MiddleBtn>
   )
 }
