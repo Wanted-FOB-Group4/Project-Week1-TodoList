@@ -4,7 +4,7 @@ import classnames from 'classnames'
 
 function CategoryModal({ handleModalClick, handleSelectCategory }) {
   const [todoCategory, setTodoCategory] = useState('')
-  const [categoryList, setCategoryList] = useState(['All', 'Person', 'Business'])
+  const [categoryList, setCategoryList] = useState(['Personal', 'Business'])
   const [buttonToggle, setButtonToggle] = useState(0)
 
   const handleCategoryClick = (idx) => {
