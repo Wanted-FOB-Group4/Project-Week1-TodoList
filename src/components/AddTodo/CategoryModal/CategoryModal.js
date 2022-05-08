@@ -57,9 +57,4 @@ function CategoryModal({ handleModalClick, handleSelectCategory }) {
   )
 }
 
-CategoryModal.propTypes = {
-  handleModalClick: Function,
-  handleSelectCategory: Function
-}
-
 export default CategoryModal

@@ -7,8 +7,6 @@ import Categories from '../components/Categories'
 import Tasks from '../components/Tasks'
 import { PlusIcon } from '../assets/svgs'
 import Modal from '../components/AddTodo/Modal/Modal'
-import DateBtn from '../components/AddTodo/MiddleBtn/DateBtn'
-import ModalAct from '../components/AddTodo/Modal/ModalAct'
 
 // TODO: Make CreateTaskButton
 
@@ -91,7 +89,7 @@ function App() {
           <WelcomeMessage userName={userName} />
           <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
           <Tasks tasks={tasks} setTasks={setTasks} />
-          {modalOn && <Modal onClose={handleModal} active={active} />}
+          {modalOn && <Modal onClose={handleModal} active={active} setTasks={setTasks} />}
         </main>
         <BigBtn circle='true' onClickHandle={handleModal}>
           <PlusIcon />

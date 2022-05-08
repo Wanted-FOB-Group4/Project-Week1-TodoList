@@ -10,23 +10,14 @@ import Icons from '../Icons/Icons'
 import { useState } from 'react'
 import { dateFormat } from '../FunctionBundle'
 import BigBtn from '../BigBtn/BigBtn'
-import { ArrowDown, PlusIcon } from '../../../assets/svgs'
+import { PlusIcon } from '../../../assets/svgs'
 
 // eslint-disable-next-line react/prop-types
-function Modal({ onClose, onModalClick, active }) {
+function Modal({ onClose, onModalClick, active, setTasks }) {
   const [todoText, setTodoText] = useState('')
-  const [listData, setListData] = useState([])
   const [formatDate, setFormatDate] = useState(dateFormat(new Date()))
   const [selectCategory, setSelectCategory] = useState('All')
   const [closeModal, setCloseModal] = useState(true)
-
-  const listAddData = () => {
-    const id = formatDate
-    const date = formatDate
-    const content = todoText
-    const category = selectCategory
-    const idDone = false
-  }
 
   const handleInputChange = (e) => {
     setTodoText(e.currentTarget.value)
@@ -40,12 +31,14 @@ function Modal({ onClose, onModalClick, active }) {
     setCloseModal(bool)
   }
   const handleAddTaskClick = () => {
-    console.log('ADD TASK!')
+    const newTask = { id: formatDate, date: formatDate, category: selectCategory, content: todoText, isDone: false }
+    setTasks((prev) => [...prev, newTask])
+    onClose()
   }
   return (
     <ModalPortal>
-      <div className={classNames(styles.background)} aria-hidden onClick={onModalClick}>
-        <div className={classNames(styles.content)}>
+      <div className={styles.background} aria-hidden onClick={onModalClick}>
+        <div className={styles.content}>
           <div className={classNames(styles.page, { [styles.active]: active })}>
             <div className={styles.xBtn}>
               <XBtn onClose={onClose} />
@@ -55,6 +48,13 @@ function Modal({ onClose, onModalClick, active }) {
               <div className={styles.buttonForm}>
                 <DateBtn handleSelectDate={handleSelectDate} />
                 <CategoryBtn handleModalClick={handleModalClick} />
+                <div
+                  className={styles.categoryModal}
+                  aria-hidden
+                  style={closeModal ? { display: 'none' } : { display: 'inline-block' }}
+                >
+                  <CategoryModal handleModalClick={handleModalClick} handleSelectCategory={setSelectCategory} />
+                </div>
               </div>
               <div
                 className={styles.modalBackground}
@@ -62,13 +62,7 @@ function Modal({ onClose, onModalClick, active }) {
                 aria-hidden
                 onClick={() => handleModalClick(true)}
               />
-              <div
-                className={styles.categoryModal}
-                aria-hidden
-                style={closeModal ? { display: 'none' } : { display: 'inline-block' }}
-              >
-                <CategoryModal handleModalClick={handleModalClick} handleSelectCategory={setSelectCategory} />
-              </div>
+
               <div className={styles.optionIconBox}>
                 <Icons />
               </div>
@@ -83,19 +77,4 @@ function Modal({ onClose, onModalClick, active }) {
     </ModalPortal>
   )
 }
-// const handleModal = () => {
-//   if (modalOn === true) {
-//     setClassName((prev) => !prev)
-//     setTimeout(() => {
-//       setModalOn(!modalOn)
-//     }, 1000)
-//   } else {
-//     setModalOn((prev) => !prev)
-//     setTimeout(() => {
-//       setClassName((prev) => !prev)
-//     }, 10)
-//   }
-// }
-// {modalOn && <Modal onClose={handleModal} classname={classname} />}
-
 export default Modal

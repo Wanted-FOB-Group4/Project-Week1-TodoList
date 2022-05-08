@@ -13,8 +13,4 @@ function XBtn({ onClose }) {
   )
 }
 
-XBtn.propTypes = {
-  onClose: Function,
-}
-
 export default XBtn

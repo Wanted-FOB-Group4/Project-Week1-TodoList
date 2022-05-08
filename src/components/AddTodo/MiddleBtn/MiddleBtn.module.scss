@@ -17,12 +17,14 @@ $GRAY: #808691;
 .circleBtn {
   @include btnshape;
   width: 48px;
+  cursor: pointer;
   border-radius: 50%;
 }
 
 .ovalBtn {
   @include btnshape;
   width: 153px;
+  cursor: pointer;
   border-radius: 30px;
 }
 
