@@ -1,0 +1,81 @@
+@use '/src/styles/constants/colors';
+
+.container {
+  margin-top: 30px;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+
+  li {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    background-color: colors.$WHITE;
+    border-radius: 12px;
+  }
+
+  .doneCircle {
+    width: 24px;
+    height: 24px;
+    border: 2px solid;
+    border-radius: 100%;
+
+    $COLOR_PERSONAL: #106af9;
+    $COLOR_BUSINESS: #e100ff;
+
+    &.personal {
+      border-color: $COLOR_PERSONAL;
+
+      &.done {
+        background-color: $COLOR_PERSONAL;
+      }
+    }
+
+    &.business {
+      border-color: $COLOR_BUSINESS;
+
+      &.done {
+        background-color: $COLOR_BUSINESS;
+      }
+    }
+  }
+
+  .done {
+    text-decoration: line-through;
+  }
+
+  .deleteButton {
+    display: flex;
+    align-items: center;
+
+    .trashIcon {
+      width: 20px;
+      height: 20px;
+      margin-left: 20px;
+      fill: colors.$GRAYA;
+    }
+  }
+}
+
+.noTaskMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+  line-height: 1.5rem;
+  color: colors.$GRAY6;
+
+  .smileIcon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 16px;
+    fill: colors.$YELLOW;
+  }
+}
