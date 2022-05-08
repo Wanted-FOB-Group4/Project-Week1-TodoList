@@ -1,50 +1,21 @@
 @use '/src/styles/constants/colors';
 
-.menuComponent {
-  position: relative;
-  width: 280px;
-  height: 550px;
-  margin: 0 auto;
-  overflow: hidden;
-  background-color: colors.$MENU_BACKGROUND;
-  border-radius: 25px;
+.menuWrapper {
+  position: absolute;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+  padding: 2rem 1rem;
 
-  .menuWrapper {
-    position: absolute;
-    z-index: 1;
-    width: inherit;
-    height: inherit;
-    padding: 2rem 1rem;
-
-    h4 {
-      margin-bottom: 0.2rem;
-      margin-left: 0.5rem;
-      color: colors.$MENU_WHITE30P;
-    }
-
-    h2 {
-      margin-left: 0.5rem;
-      font-size: 1.3rem;
-      color: colors.$WHITE;
-    }
+  h4 {
+    margin-bottom: 0.2rem;
+    margin-left: 0.5rem;
+    color: colors.$MENU_WHITE30P;
   }
 
-  .todoComponent {
-    position: absolute;
-    z-index: 10;
-    width: 280px;
-    height: 550px;
-    background-color: #ffffff;
-    border-radius: 25px;
-
-    .iconWrapper {
-      padding: 20px;
-
-      .menuIcons {
-        width: 50px;
-        height: 50px;
-        background-color: #44bd32;
-      }
-    }
+  h2 {
+    margin-left: 0.5rem;
+    font-size: 1.3rem;
+    color: colors.$WHITE;
   }
 }
