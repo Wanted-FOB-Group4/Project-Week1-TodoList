@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './Header'
 import WelcomeMessage from './WelcomeMessage'
 import Categories from './Categories'
@@ -24,29 +24,39 @@ function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
       total: 40,
     },
   ])
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      date: '',
-      isDone: false,
-      category: 'personal',
-      content: 'This is the first task',
-    },
-    {
-      id: 2,
-      date: '',
-      isDone: true,
-      category: 'business',
-      content: 'This is the second task',
-    },
-    {
-      id: 3,
-      date: '',
-      isDone: false,
-      category: 'business',
-      content: 'This is the third task',
-    },
-  ])
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem('tasks')) || [
+      {
+        id: 1,
+        date: '',
+        isDone: false,
+        category: 'personal',
+        content: 'This is the first task',
+      },
+      {
+        id: 2,
+        date: '',
+        isDone: true,
+        category: 'business',
+        content: 'This is the second task',
+      },
+      {
+        id: 3,
+        date: '',
+        isDone: false,
+        category: 'business',
+        content: 'This is the third task',
+      },
+    ]
+  )
+
+  useEffect(() => {
+    setTasks(JSON.parse(localStorage.getItem('tasks')))
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks])
 
   const handleSearchInputChange = (searchChanged) => {
     setSearchInput(searchChanged)
