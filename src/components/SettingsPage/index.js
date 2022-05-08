@@ -1,13 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import styles from './SettingsPage.module.scss'
 
 function SettingsPage() {
-  const [name, setName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
 
-  const handleInputChange = (e) => {
-    setName(e.target.value)
+  const handleFirstNameChange = (e) => {
+    setFirstName(e.target.value)
   }
+
+  const handleLastNameChange = (e) => {
+    setLastName(e.target.value)
+  }
+
   return (
     <div className={styles.settingsPageDiv}>
       <header className={styles.settingsPageHeader}>
@@ -16,7 +22,22 @@ function SettingsPage() {
       <main className={styles.settingsPageMain}>
         <h3>Change Nickname</h3>
         <form>
-          <input type='text' name='name' placeholder='Enter Name' value={name} onChange={handleInputChange} />
+          <label htmlFor='firstName'>First Name</label>
+          <input
+            type='text'
+            name='firstName'
+            placeholder='Enter First Name'
+            value={firstName}
+            onChange={handleFirstNameChange}
+          />
+          <label htmlFor='lastName'>Last Name</label>
+          <input
+            type='text'
+            name='lastName'
+            placeholder='Enter Last Name'
+            value={lastName}
+            onChange={handleLastNameChange}
+          />
           <button type='submit'>Save</button>
         </form>
       </main>

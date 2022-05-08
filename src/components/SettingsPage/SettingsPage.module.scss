@@ -17,11 +17,19 @@
   height: 500px;
 
   form {
-    @include flexbox(between, center);
-    margin: 1rem 0;
+    @include flexbox(start, left);
+    flex-direction: column;
+    margin: 2rem 0 1rem 0;
+
+    label {
+      margin-bottom: 0.2rem;
+      font-size: 0.7rem;
+      color: colors.$SECTION_TITLE;
+    }
 
     input {
       padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
       border: 1px solid colors.$SECTION_TITLE;
       border-radius: 0.5rem;
     }
