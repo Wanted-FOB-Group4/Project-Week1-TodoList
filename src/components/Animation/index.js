@@ -6,7 +6,7 @@ import styles from './Animation.module.scss'
 import Menu from '../Menu'
 
 function Animation() {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const todoVariants = {
     open: { x: 200, scale: 0.88, transition: { type: 'linear', duration: 0.4 } },
