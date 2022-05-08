@@ -1,16 +1,16 @@
 @use '/src/styles/constants/colors';
+@import '/src/styles/mixins/flexbox';
 
 .profileDiv {
   display: flex;
   flex-direction: row;
+  width: 280px;
   padding: 2rem 1rem;
 }
 
 .profileSect {
-  display: flex;
+  @include flexbox(center, left);
   flex-direction: column;
-  align-items: left;
-  justify-content: center;
   width: 50%;
   padding: 1rem;
 
@@ -49,14 +49,11 @@
   height: 2.3rem;
   font-weight: 700;
   color: colors.$WHITE;
-  border: 1.5px solid rgba(255, 255, 255, 30%);
+  border: 1.5px solid colors.$MENUPROFILE_WHITE30P;
   border-radius: 50%;
 
   svg {
-    width: 0.5rem;
-  }
-
-  polygon {
+    width: 0.8rem;
     fill: colors.$WHITE;
   }
 }
