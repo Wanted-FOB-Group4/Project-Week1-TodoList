@@ -1,0 +1,30 @@
+@use '/src/styles/constants/colors';
+
+.animationWrapper {
+  position: relative;
+  width: 280px;
+  height: 550px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: colors.$MENU_BACKGROUND;
+  border-radius: 25px;
+}
+
+.todoComponent {
+  position: absolute;
+  z-index: 10;
+  width: 280px;
+  height: 550px;
+  background-color: #ffffff;
+  border-radius: 25px;
+
+  .iconWrapper {
+    padding: 20px;
+
+    .menuIcons {
+      width: 50px;
+      height: 50px;
+      background-color: #44bd32;
+    }
+  }
+}
