@@ -3,7 +3,7 @@
 
 .menuTabContainer {
   width: 280px;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
   overflow: hidden;
   list-style: none;
 }
@@ -14,7 +14,7 @@
   flex-direction: column;
   width: 50%;
   height: 2rem;
-  text-align: center;
+  padding-left: 0.5rem;
   cursor: pointer;
   border-radius: 0.3rem;
 
@@ -36,22 +36,17 @@
   .title {
     display: inline-block;
     flex-grow: 2;
+    font-size: 0.9rem;
     color: colors.$MENU_WHITE60P;
   }
 
   .icon {
     display: inline-block;
     flex-grow: 1;
-    margin-right: 0.5rem;
+    margin-right: 0.3rem;
 
     svg {
       fill: colors.$MENUTAB_ICON;
     }
-  }
-}
-
-.icon {
-  svg {
-    color: colors.$MENUTAB_ICON;
   }
 }
