@@ -1,9 +1,12 @@
 @use '/src/styles/constants/colors';
 
 .main {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$OUTSIDE;
 }
 
 .app {
@@ -30,18 +33,4 @@
   font-size: calc(10px + 2vmin);
   color: colors.$WHITE;
   background-color: #282c34;
-}
-
-.appLink {
-  color: colors.$BLUE;
-}
-
-@keyframes appLogoSpin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
 }

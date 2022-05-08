@@ -1,0 +1,75 @@
+$BACKGROUND: #ffffff;
+$BORDER: #f2f2f5;
+$CIRCLE: #156ef6;
+
+$GRAY: #808691;
+
+@mixin btnshape {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  background: $BACKGROUND;
+  border: 3px solid $BORDER;
+}
+
+.circleBtn {
+  @include btnshape;
+  width: 48px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.ovalBtn {
+  @include btnshape;
+  width: 153px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.categoryBtnBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.outerCircle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  .innerCircle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $CIRCLE;
+    border-radius: 50%;
+
+    &::before {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      content: '';
+      background: $CIRCLE;
+      border-radius: 50%;
+    }
+  }
+}
+
+.xIcon {
+  font-size: 14px;
+}
+
+.calendarIcon {
+  margin-right: 5px;
+  font-size: 17px;
+  color: $GRAY;
+}

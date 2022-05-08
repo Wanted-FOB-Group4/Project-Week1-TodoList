@@ -1,0 +1,53 @@
+@use '/src/styles/constants/colors';
+@import '/src/styles/mixins/flexbox';
+
+.menuTabContainer {
+  width: 280px;
+  padding-left: 0.5rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  list-style: none;
+}
+
+// menuTabItem
+.menuTabItemContainer {
+  @include flexbox(center, left);
+  flex-direction: column;
+  width: 60%;
+  height: 2rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+
+  + .menuTabItemContainer {
+    margin-top: 0.3rem;
+  }
+}
+
+.menuTabItemContainer:hover {
+  background-color: rgba($color: colors.$MENUTAB_HOVERCOLOR, $alpha: 30%);
+}
+
+.itemContents {
+  box-sizing: border-box;
+  @include flexbox(start, center);
+  width: 100%;
+  height: 30px;
+
+  .title {
+    display: inline-block;
+    flex-grow: 2;
+    font-size: 0.9rem;
+    color: colors.$MENU_WHITE60P;
+  }
+
+  .icon {
+    display: inline-block;
+    flex-grow: 1;
+    margin-right: 0.3rem;
+
+    svg {
+      fill: colors.$MENUTAB_ICON;
+    }
+  }
+}

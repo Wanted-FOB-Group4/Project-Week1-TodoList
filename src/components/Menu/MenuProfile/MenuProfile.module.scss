@@ -1,0 +1,58 @@
+@use '/src/styles/constants/colors';
+@import '/src/styles/mixins/flexbox';
+
+.profileDiv {
+  display: flex;
+  flex-direction: row;
+  width: 280px;
+}
+
+.profileSect {
+  @include flexbox(center, left);
+  flex-direction: column;
+  width: 50%;
+  padding: 1rem;
+
+  .imageDiv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    position: absolute;
+    width: 3.7rem;
+    background-color: colors.$WHITE;
+    border-radius: 50%;
+  }
+
+  .userName {
+    width: 100%;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: colors.$WHITE;
+    letter-spacing: 0.1px;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  font-weight: 700;
+  color: colors.$WHITE;
+  border: 1.5px solid colors.$MENU_WHITE30P;
+  border-radius: 50%;
+
+  svg {
+    width: 0.8rem;
+    fill: colors.$WHITE;
+  }
+}

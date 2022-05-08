@@ -1,0 +1,99 @@
+@use '/src/styles/constants/colors';
+
+.background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.xBtn {
+  position: absolute;
+  top: 50px;
+  right: 30px;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  height: 720px;
+  padding: 60px 40px 40px;
+  overflow: hidden;
+  background-color: transparent;
+  border-radius: 30px;
+}
+
+.page {
+  position: absolute;
+  right: -300px;
+  bottom: -600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  background-color: #6e6e6e;
+  border-radius: 100%;
+  transition: all 0.5s ease-out;
+
+  &.active {
+    right: 0;
+    bottom: 0;
+    width: 360px;
+    height: 720px;
+    background-color: colors.$WHITE;
+    border-radius: 30px;
+  }
+}
+
+.mainForm {
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+}
+
+.buttonForm {
+  position: relative;
+  display: flex;
+  align-items: start;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+}
+
+.optionIconBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.categoryModal {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 10;
+  display: none;
+  width: 260px;
+  height: 220px;
+}
