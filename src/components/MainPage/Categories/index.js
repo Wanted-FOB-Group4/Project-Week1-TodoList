@@ -1,10 +1,36 @@
 import styles from './Categories.module.scss'
 import SectionTitle from '../SectionTitle'
 
-function Categories({ categories, setSelectedCategory }) {
+function makeCategoryData(tasks) {
+  const newArr = [{ name: 'All', isDone: 0, total: 0 }]
+  tasks.forEach((task) => {
+    const categoryIdx = newArr.findIndex((category) => {
+      return category.name.toLowerCase() === task.category.toLowerCase()
+    })
+
+    const done = task.isDone ? 1 : 0
+    const category = task.category[0].toUpperCase() + task.category.slice(1)
+
+    if (categoryIdx === -1) {
+      newArr.push({ name: category, isDone: done, total: 1 })
+    } else {
+      newArr[categoryIdx].total += 1
+      newArr[categoryIdx].isDone += done
+    }
+
+    newArr[0].total += 1
+    newArr[0].isDone += done
+  })
+
+  return newArr
+}
+
+function Categories({ tasks, setSelectedCategory }) {
   const handleCategoryChange = (name) => {
     setSelectedCategory(name)
   }
+
+  const categories = makeCategoryData(tasks)
 
   return (
     <div className={styles.container}>
