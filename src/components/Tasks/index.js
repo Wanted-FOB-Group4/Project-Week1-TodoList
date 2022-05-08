@@ -5,7 +5,7 @@ import { SwipeableList, SwipeableListItem, SwipeAction, TrailingActions, Type as
 import 'react-swipeable-list/dist/styles.css'
 import { TrashImage, SmileImage } from '../../assets/svgs'
 
-function Tasks({ tasks, setTasks }) {
+function Tasks({ tasks, setTasks, searchInput }) {
   const handleToggleTask = (id) => {
     setTasks((prevTasks) => prevTasks.map((task) => (task.id === id ? { ...task, isDone: !task.isDone } : task)))
   }
@@ -13,6 +13,8 @@ function Tasks({ tasks, setTasks }) {
   const handleDeleteClick = (id) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id))
   }
+
+  const matchTaskContent = (task) => task.content.toLowerCase().includes(searchInput.toLowerCase())
 
   const trailingActions = ({ id }) => (
     <TrailingActions>
@@ -29,7 +31,7 @@ function Tasks({ tasks, setTasks }) {
       <SectionTitle title="TODAY'S TASKS" />
       {tasks.length ? (
         <SwipeableList className={styles.taskList} fullSwipe threshold={0.5} type={ListType.IOS}>
-          {tasks.map(({ id, isDone, category, content }) => (
+          {tasks.filter(matchTaskContent).map(({ id, isDone, category, content }) => (
             <SwipeableListItem key={`task-${id}`} trailingActions={trailingActions({ id })}>
               <TaskItem isDone={isDone} category={category} content={content} onToggle={() => handleToggleTask(id)} />
             </SwipeableListItem>

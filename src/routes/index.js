@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import styles from './Routes.module.scss'
 
 import Header from '../components/Header'
@@ -10,6 +10,9 @@ import Tasks from '../components/Tasks'
 
 function App() {
   const [userName, setUserName] = useState('Joy')
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [searchInput, setSearchInput] = useState('')
+
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [categories, setCategories] = useState([
     {
@@ -52,6 +55,18 @@ function App() {
     },
   ])
 
+  const handleMenuBtnClick = useCallback(() => {
+    setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen)
+  }, [setIsMenuOpen])
+
+  const handleUserNameChange = (nameChanged) => {
+    setUserName(nameChanged)
+  }
+
+  const handleSearchInputChange = (searchChanged) => {
+    setSearchInput(searchChanged)
+  }
+
   // 처음에 localStorage에서 userName과 tasks 불러오기
   useEffect(() => {
     // TODO: setTasks(localStorage.getItem('tasks'))
@@ -67,11 +82,11 @@ function App() {
   return (
     <div className={styles.app}>
       <div className={styles.container}>
-        <Header />
+        <Header onMenuBtnClick={handleMenuBtnClick} onSearchInputChange={handleSearchInputChange} />
         <main>
-          <WelcomeMessage userName={userName} />
+          <WelcomeMessage name={userName} onUserNameChange={handleUserNameChange} />
           <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
-          <Tasks tasks={tasks} setTasks={setTasks} />
+          <Tasks tasks={tasks} setTasks={setTasks} searchInput={searchInput} />
         </main>
       </div>
     </div>
