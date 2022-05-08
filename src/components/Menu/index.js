@@ -23,14 +23,13 @@ const INIT_MENU = [
   { id: 'menu_tab_4', icon: <SettingIcon />, title: 'Settings' },
 ]
 
-function Menu({ isMenuOpen, setIsMenuOpen }) {
+function Menu({ userName, isMenuOpen, setIsMenuOpen }) {
   return (
     <div className={styles.menuWrapper}>
       <MenuProfile
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
-        firstName='Joy'
-        lastName='Mitchell'
+        userName={userName}
         picSrc='https://coinpan.com/files/attach/images/198/832/427/277/f337aaeffe1f5e52878e10264278831c.jpg'
         todoCount={10}
         todoMax={25}

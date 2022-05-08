@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { motion } from 'framer-motion'
 
@@ -8,7 +8,11 @@ import MainPage from '../MainPage'
 
 function Animation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [userName, setUserName] = useState('Joy')
+  const [userName, setUserName] = useState(localStorage.getItem('userName') || 'Guest')
+
+  useEffect(() => {
+    localStorage.setItem('userName', userName)
+  }, [userName])
 
   const todoVariants = {
     open: { x: 200, scale: 0.88, transition: { type: 'linear', duration: 0.4 } },
@@ -25,7 +29,7 @@ function Animation() {
 
   return (
     <div className={styles.animationWrapper}>
-      <Menu isMenuOpen={isOpen} setIsMenuOpen={setIsOpen} />
+      <Menu userName={userName} isMenuOpen={isOpen} setIsMenuOpen={setIsOpen} />
       <motion.div className={styles.todoComponent} variants={todoVariants} animate={isOpen ? 'open' : 'close'}>
         <div className={styles.container}>
           <MainPage
