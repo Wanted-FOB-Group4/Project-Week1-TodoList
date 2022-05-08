@@ -85,7 +85,7 @@ function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
       <Header onMenuBtnClick={handleMenuBtnClick} onSearchInputChange={handleSearchInputChange} />
       <main>
         <WelcomeMessage name={userName} onUserNameChange={handleUserNameChange} />
-        <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
+        <Categories tasks={tasks} setSelectedCategory={setSelectedCategory} />
         <Tasks tasks={tasks} setTasks={setTasks} searchInput={searchInput} selectedCategory={selectedCategory} />
         {modalOn && <Modal onClose={handleModal} active={active} setTasks={setTasks} />}
       </main>
