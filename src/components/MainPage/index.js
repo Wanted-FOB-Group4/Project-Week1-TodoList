@@ -48,23 +48,6 @@ function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
   }
   const [searchInput, setSearchInput] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
-  const [categories, setCategories] = useState([
-    {
-      name: 'All',
-      isDone: 25,
-      total: 70,
-    },
-    {
-      name: 'Personal',
-      isDone: 15,
-      total: 30,
-    },
-    {
-      name: 'Business',
-      isDone: 10,
-      total: 40,
-    },
-  ])
 
   const handleSearchInputChange = (searchChanged) => {
     setSearchInput(searchChanged)
@@ -77,7 +60,7 @@ function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
         <WelcomeMessage name={userName} onUserNameChange={handleUserNameChange} />
         <Categories tasks={tasks} setSelectedCategory={setSelectedCategory} />
         <Tasks tasks={tasks} setTasks={setTasks} searchInput={searchInput} />
-        {modalOn && <Modal onClose={handleModal} active={active} setTasks={setTasks} setCategories={setCategories} />}
+        {modalOn && <Modal onClose={handleModal} active={active} setTasks={setTasks} />}
       </main>
       <BigBtn circle='true' onClickHandle={handleModal}>
         <PlusIcon />

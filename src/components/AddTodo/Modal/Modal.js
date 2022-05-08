@@ -13,7 +13,7 @@ import BigBtn from '../BigBtn/BigBtn'
 import { PlusIcon } from '../../../assets/svgs'
 
 // eslint-disable-next-line react/prop-types
-function Modal({ onClose, onModalClick, active, setTasks, setCategories }) {
+function Modal({ onClose, onModalClick, active, setTasks }) {
   const [todoText, setTodoText] = useState('')
   const [formatDate, setFormatDate] = useState(dateFormat(new Date()))
   const [selectCategory, setSelectCategory] = useState('Personal')
