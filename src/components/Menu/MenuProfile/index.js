@@ -5,15 +5,16 @@ import { CircularProgressbar } from 'react-circular-progressbar'
 import CIRCLE_STYLE from './progressBarStyle'
 import { ArrowLeftIcon } from '../../../assets/svgs'
 
-function MenuProfile({ isMenuOpen, firstName, lastName, picSrc, todoMax, todoCount }) {
+function MenuProfile({ isMenuOpen, setIsMenuOpen, firstName, lastName, picSrc, todoMax, todoCount }) {
   const [percentage, setPercentage] = useState(0)
 
   useEffect(() => {
-    setPercentage((todoCount * 100) / todoMax)
+    if (!isMenuOpen) setPercentage(0)
+    else setPercentage((todoCount * 100) / todoMax)
   }, [isMenuOpen, todoMax, todoCount])
 
   const handleBtnClick = () => {
-    console.log('clicked')
+    setIsMenuOpen((prevState) => !prevState)
     // 버튼 클릭 시 메뉴창 닫는 이벤트 추가
   }
 
