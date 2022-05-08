@@ -4,9 +4,11 @@ import { motion } from 'framer-motion'
 
 import styles from './Animation.module.scss'
 import Menu from '../Menu'
+import MainPage from '../MainPage'
 
 function Animation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [userName, setUserName] = useState('Joy')
 
   const todoVariants = {
     open: { x: 200, scale: 0.88, transition: { type: 'linear', duration: 0.4 } },
@@ -17,16 +19,15 @@ function Animation() {
     setIsOpen((prevState) => !prevState)
   }
 
+  const handleUserNameChange = (nameInput) => {
+    setUserName(nameInput)
+  }
+
   return (
     <div className={styles.animationWrapper}>
       <Menu isMenuOpen={isOpen} setIsMenuOpen={setIsOpen} />
       <motion.div className={styles.todoComponent} variants={todoVariants} animate={isOpen ? 'open' : 'close'}>
-        {/* todo component */}
-        <div className={styles.iconWrapper}>
-          <button type='button' className={styles.menuIcons} onClick={handleMenuBtn}>
-            +
-          </button>
-        </div>
+        <MainPage handleMenuBtnClick={handleMenuBtn} userName='Joy' handleUserNameChange={handleUserNameChange} />
       </motion.div>
     </div>
   )
