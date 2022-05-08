@@ -89,11 +89,7 @@ function App() {
           <WelcomeMessage userName={userName} />
           <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
           <Tasks tasks={tasks} setTasks={setTasks} />
-          {modalOn && <Modal onClose={handleModal} active={active} setTasks={setTasks} />}
         </main>
-        <BigBtn circle='true' onClickHandle={handleModal}>
-          <PlusIcon />
-        </BigBtn>
       </div>
     </div>
   )
