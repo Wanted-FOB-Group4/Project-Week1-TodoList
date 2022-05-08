@@ -1,9 +1,9 @@
 import styles from './Icons.module.scss'
-import FolderIcon from './folderIcon'
+import FolderIcon from './FolderIcon'
 import FlagIcon from './FlagIcon'
 import MoonIcon from './MoonIcon'
 
-function Icons () {
+function Icons() {
   return (
     <div className={styles.box}>
       <FolderIcon />

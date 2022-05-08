@@ -93,7 +93,7 @@ function App() {
           <Tasks tasks={tasks} setTasks={setTasks} />
           {modalOn && <Modal onClose={handleModal} active={active} />}
         </main>
-        <BigBtn circle='circle' onClickHandle={handleModal}>
+        <BigBtn circle='true' onClickHandle={handleModal}>
           <PlusIcon />
         </BigBtn>
       </div>

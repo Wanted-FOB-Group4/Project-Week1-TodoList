@@ -8,7 +8,9 @@ import DateBtn from '../MiddleBtn/DateBtn'
 import CategoryBtn from '../MiddleBtn/CategoryBtn'
 import Icons from '../Icons/Icons'
 import { useState } from 'react'
-import {dateFormat} from '../FunctionBundle'
+import { dateFormat } from '../FunctionBundle'
+import BigBtn from '../BigBtn/BigBtn'
+import { ArrowDown, PlusIcon } from '../../../assets/svgs'
 
 // eslint-disable-next-line react/prop-types
 function Modal({ onClose, onModalClick, active }) {
@@ -18,13 +20,13 @@ function Modal({ onClose, onModalClick, active }) {
   const [selectCategory, setSelectCategory] = useState('All')
   const [closeModal, setCloseModal] = useState(true)
 
- const listAddData = () => {
-  const id = formatDate
-  const date = formatDate
-  const content = todoText
-  const category = selectCategory
-  const idDone = false
- }
+  const listAddData = () => {
+    const id = formatDate
+    const date = formatDate
+    const content = todoText
+    const category = selectCategory
+    const idDone = false
+  }
 
   const handleInputChange = (e) => {
     setTodoText(e.currentTarget.value)
@@ -32,12 +34,14 @@ function Modal({ onClose, onModalClick, active }) {
 
   const handleSelectDate = (date) => {
     setFormatDate(dateFormat(date))
-   }
+  }
 
-   const handleModalClick = (bool) => {
+  const handleModalClick = (bool) => {
     setCloseModal(bool)
-   }
-
+  }
+  const handleAddTaskClick = () => {
+    console.log('ADD TASK!')
+  }
   return (
     <ModalPortal>
       <div className={classNames(styles.background)} aria-hidden onClick={onModalClick}>
@@ -52,10 +56,27 @@ function Modal({ onClose, onModalClick, active }) {
                 <DateBtn handleSelectDate={handleSelectDate} />
                 <CategoryBtn handleModalClick={handleModalClick} />
               </div>
-              <div className={styles.modalBackground} style={closeModal ? {display: 'none'} : {display: 'inline-block'}} aria-hidden onClick={() => handleModalClick(true)} />
-              <div className={styles.categoryModal} aria-hidden style={closeModal ? {display: 'none'} : {display: 'inline-block'}}><CategoryModal handleModalClick={handleModalClick} handleSelectCategory={setSelectCategory} /></div>
-              <Icons />
+              <div
+                className={styles.modalBackground}
+                style={closeModal ? { display: 'none' } : { display: 'inline-block' }}
+                aria-hidden
+                onClick={() => handleModalClick(true)}
+              />
+              <div
+                className={styles.categoryModal}
+                aria-hidden
+                style={closeModal ? { display: 'none' } : { display: 'inline-block' }}
+              >
+                <CategoryModal handleModalClick={handleModalClick} handleSelectCategory={setSelectCategory} />
+              </div>
+              <div className={styles.optionIconBox}>
+                <Icons />
+              </div>
             </main>
+            <BigBtn onClickHandle={handleAddTaskClick}>
+              New task
+              <PlusIcon />
+            </BigBtn>
           </div>
         </div>
       </div>

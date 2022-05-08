@@ -14,7 +14,7 @@
 
 .xBtn {
   position: absolute;
-  top: 30px;
+  top: 50px;
   right: 30px;
 }
 
@@ -58,11 +58,15 @@
 .mainForm {
   display: flex;
   flex-direction: column;
+  height: 270px;
 }
 
 .buttonForm {
   display: flex;
-  flex-direction: row;
+  align-items: start;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 80px;
 }
 
 .modalBackground {
@@ -76,10 +80,21 @@
   background: transparent;
 }
 
+.optionIconBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .categoryModal {
   position: absolute;
   z-index: 10;
   display: none;
   width: 260px;
   height: 220px;
+}
+
+.addtaskBtn {
+  width: 100%;
+  border: 1px solid red;
 }

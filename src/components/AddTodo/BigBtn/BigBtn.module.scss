@@ -4,9 +4,9 @@
   position: absolute;
   right: 50px;
   bottom: 100px;
-  display: absolute;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: auto;
   padding: 15px 30px;
   font-weight: 700;
@@ -18,11 +18,19 @@
   &.circle {
     padding: 15px;
     border-radius: 50%;
+
+    svg {
+      width: 40px;
+      height: 40px;
+      margin-left: 0;
+      fill: colors.$WHITE;
+    }
   }
 
   svg {
-    width: 40px;
-    height: 40px;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
     fill: colors.$WHITE;
   }
 }
