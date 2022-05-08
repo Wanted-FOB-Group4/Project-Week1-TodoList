@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import styles from './Animation.module.scss'
-import Menu from '../Menu/Menu'
+import Menu from '../Menu'
 
 function Animation() {
   const [isOpen, setIsOpen] = useState(true)

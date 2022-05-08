@@ -1,10 +1,10 @@
-import Menu from '../components/Menu'
+import Animation from '../components/Animation'
 import styles from './Routes.module.scss'
 
 function App() {
   return (
     <div className={styles.main}>
-      <Menu />
+      <Animation />
     </div>
   )
 }
