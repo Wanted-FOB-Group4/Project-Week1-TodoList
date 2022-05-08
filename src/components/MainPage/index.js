@@ -3,27 +3,11 @@ import Header from './Header'
 import WelcomeMessage from './WelcomeMessage'
 import Categories from './Categories'
 import Tasks from './Tasks'
+import { PlusIcon } from '../../assets/svgs'
+import BigBtn from '../AddTodo/BigBtn/BigBtn'
+import Modal from '../AddTodo/Modal/Modal'
 
 function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
-  const [searchInput, setSearchInput] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('All')
-  const [categories, setCategories] = useState([
-    {
-      name: 'All',
-      isDone: 25,
-      total: 70,
-    },
-    {
-      name: 'Personal',
-      isDone: 15,
-      total: 30,
-    },
-    {
-      name: 'Business',
-      isDone: 10,
-      total: 40,
-    },
-  ])
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -47,6 +31,40 @@ function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
       content: 'This is the third task',
     },
   ])
+  const [modalOn, setModalOn] = useState(false)
+  const [active, setActive] = useState(false)
+  const handleModal = () => {
+    if (modalOn === true) {
+      setActive((prev) => !prev)
+      setTimeout(() => {
+        setModalOn(!modalOn)
+      }, 500)
+    } else {
+      setModalOn((prev) => !prev)
+      setTimeout(() => {
+        setActive((prev) => !prev)
+      }, 10)
+    }
+  }
+  const [searchInput, setSearchInput] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [categories, setCategories] = useState([
+    {
+      name: 'All',
+      isDone: 25,
+      total: 70,
+    },
+    {
+      name: 'Personal',
+      isDone: 15,
+      total: 30,
+    },
+    {
+      name: 'Business',
+      isDone: 10,
+      total: 40,
+    },
+  ])
 
   const handleSearchInputChange = (searchChanged) => {
     setSearchInput(searchChanged)
@@ -59,7 +77,11 @@ function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
         <WelcomeMessage name={userName} onUserNameChange={handleUserNameChange} />
         <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
         <Tasks tasks={tasks} setTasks={setTasks} searchInput={searchInput} />
+        {modalOn && <Modal onClose={handleModal} active={active} setTasks={setTasks} />}
       </main>
+      <BigBtn circle='true' onClickHandle={handleModal}>
+        <PlusIcon />
+      </BigBtn>
     </>
   )
 }
