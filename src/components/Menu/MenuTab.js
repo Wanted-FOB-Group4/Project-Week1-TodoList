@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './MenuTab.module.scss'
 import MenuTabItem from './MenuTabItem'
 // import { ChartIcon, CategoryIcon, SettingIcon, BookMarkIcon } from '../../assets/svgs'
@@ -20,10 +19,6 @@ function MenuTab({ menuData }) {
       </ul>
     </nav>
   )
-}
-
-MenuTab.propTypes = {
-  menuData: [{ id: String, icon: React.Component, title: String }],
 }
 
 export default MenuTab
