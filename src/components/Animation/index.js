@@ -27,7 +27,9 @@ function Animation() {
     <div className={styles.animationWrapper}>
       <Menu isMenuOpen={isOpen} setIsMenuOpen={setIsOpen} />
       <motion.div className={styles.todoComponent} variants={todoVariants} animate={isOpen ? 'open' : 'close'}>
-        <MainPage handleMenuBtnClick={handleMenuBtn} userName='Joy' handleUserNameChange={handleUserNameChange} />
+        <div className={styles.container}>
+          <MainPage handleMenuBtnClick={handleMenuBtn} userName='Joy' handleUserNameChange={handleUserNameChange} />
+        </div>
       </motion.div>
     </div>
   )
