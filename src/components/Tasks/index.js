@@ -10,13 +10,13 @@ function Tasks({ tasks, setTasks }) {
     setTasks((prevTasks) => prevTasks.map((task) => (task.id === id ? { ...task, isDone: !task.isDone } : task)))
   }
 
-  const handleDelete = (id) => {
+  const handleDeleteClick = (id) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id))
   }
 
   const trailingActions = ({ id }) => (
     <TrailingActions>
-      <SwipeAction destructive onClick={() => handleDelete(id)}>
+      <SwipeAction destructive onClick={() => handleDeleteClick(id)}>
         <div className={styles.deleteButton}>
           <TrashImage className={styles.trashIcon} aria-label='delete' />
         </div>
