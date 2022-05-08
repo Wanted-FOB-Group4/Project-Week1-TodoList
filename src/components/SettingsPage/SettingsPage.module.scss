@@ -19,7 +19,7 @@
   form {
     @include flexbox(start, left);
     flex-direction: column;
-    margin: 2rem 0 1rem 0;
+    margin: 2rem 0 1rem;
 
     label {
       margin-bottom: 0.2rem;
