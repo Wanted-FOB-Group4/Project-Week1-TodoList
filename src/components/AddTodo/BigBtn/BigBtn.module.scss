@@ -1,0 +1,36 @@
+@use '/src/styles/constants/colors';
+
+.bigBtn {
+  position: absolute;
+  right: 50px;
+  bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: auto;
+  padding: 15px 30px;
+  font-weight: 700;
+  color: colors.$WHITE;
+  background-color: #0476ff;
+  border-radius: 25px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 12%);
+
+  &.circle {
+    padding: 15px;
+    border-radius: 50%;
+
+    svg {
+      width: 40px;
+      height: 40px;
+      margin-left: 0;
+      fill: colors.$WHITE;
+    }
+  }
+
+  svg {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    fill: colors.$WHITE;
+  }
+}
