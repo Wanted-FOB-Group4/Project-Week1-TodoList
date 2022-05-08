@@ -29,7 +29,7 @@ function Animation() {
 
   return (
     <div className={styles.animationWrapper}>
-      <Menu isMenuOpen={isOpen} setIsMenuOpen={setIsOpen} />
+      <Menu userName={userName} isMenuOpen={isOpen} setIsMenuOpen={setIsOpen} />
       <motion.div className={styles.todoComponent} variants={todoVariants} animate={isOpen ? 'open' : 'close'}>
         <div className={styles.container}>
           <MainPage

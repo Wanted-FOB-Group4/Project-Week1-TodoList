@@ -5,7 +5,7 @@ import { CircularProgressbar } from 'react-circular-progressbar'
 import CIRCLE_STYLE from './progressBarStyle'
 import { ArrowLeftIcon } from '../../../assets/svgs'
 
-function MenuProfile({ isMenuOpen, setIsMenuOpen, firstName, lastName, picSrc, todoMax, todoCount }) {
+function MenuProfile({ isMenuOpen, setIsMenuOpen, userName, picSrc, todoMax, todoCount }) {
   const [percentage, setPercentage] = useState(0)
 
   useEffect(() => {
@@ -25,8 +25,7 @@ function MenuProfile({ isMenuOpen, setIsMenuOpen, firstName, lastName, picSrc, t
           <CircularProgressbar value={percentage} className={styles.progressBar} styles={CIRCLE_STYLE} />
           <img src={picSrc} alt='profilePic' />
         </div>
-        <h1>{firstName}</h1>
-        <h1>{lastName}</h1>
+        <div className={styles.userName}>{userName}</div>
       </div>
       <button type='button' className={styles.buttonWrapper} onClick={handleBtnClick}>
         <ArrowLeftIcon />
