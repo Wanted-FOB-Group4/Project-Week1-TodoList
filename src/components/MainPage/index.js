@@ -1,19 +1,52 @@
 import { useState } from 'react'
-import Header from '../Header'
-import WelcomeMessage from '../WelcomeMessage'
-import Categories from '../Categories'
-import Tasks from '../Tasks'
+import Header from './Header'
+import WelcomeMessage from './WelcomeMessage'
+import Categories from './Categories'
+import Tasks from './Tasks'
 
-function MainPage({
-  handleMenuBtnClick,
-  userName,
-  handleUserNameChange,
-  categories,
-  setSelectedCategory,
-  tasks,
-  setTasks,
-}) {
+function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
   const [searchInput, setSearchInput] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [categories, setCategories] = useState([
+    {
+      name: 'All',
+      isDone: 25,
+      total: 70,
+    },
+    {
+      name: 'Personal',
+      isDone: 15,
+      total: 30,
+    },
+    {
+      name: 'Business',
+      isDone: 10,
+      total: 40,
+    },
+  ])
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      date: '',
+      isDone: false,
+      category: 'personal',
+      content: 'This is the first task',
+    },
+    {
+      id: 2,
+      date: '',
+      isDone: true,
+      category: 'business',
+      content: 'This is the second task',
+    },
+    {
+      id: 3,
+      date: '',
+      isDone: false,
+      category: 'business',
+      content: 'This is the third task',
+    },
+  ])
 
   const handleSearchInputChange = (searchChanged) => {
     setSearchInput(searchChanged)

@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import { useState, useRef, useEffect } from 'react'
 import styles from './Header.module.scss'
-import { ArrowLeftImage, BellImage, SearchImage } from '../../assets/svgs'
+import { ArrowLeftImage, BellImage, SearchImage } from '../../../assets/svgs'
 
 function Header({ onMenuBtnClick, onSearchInputChange }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
