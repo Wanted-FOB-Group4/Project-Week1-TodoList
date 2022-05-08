@@ -1,4 +1,4 @@
-// 삭제될 부분
+@use '/src/styles/constants/colors';
 
 .menuComponent {
   position: relative;
@@ -6,12 +6,24 @@
   height: 550px;
   margin: 0 auto;
   overflow: hidden;
-  background-color: #0d2260;
+  background-color: colors.$MENU_BACKGROUND;
   border-radius: 25px;
 
   .menuWrapper {
     position: absolute;
     z-index: 1;
+    width: inherit;
+    height: inherit;
+    padding: 2rem 1rem;
+
+    h4 {
+      color: colors.$MENU_WHITE30P;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: colors.$WHITE;
+    }
   }
 
   .todoComponent {

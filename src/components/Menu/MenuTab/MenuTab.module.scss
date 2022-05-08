@@ -3,7 +3,7 @@
 
 .menuTabContainer {
   width: 280px;
-  padding-left: 1.5rem;
+  padding-left: 0.5rem;
   overflow: hidden;
   list-style: none;
 }
@@ -12,7 +12,7 @@
 .menuTabItemContainer {
   @include flexbox(center, left);
   flex-direction: column;
-  width: 50%;
+  width: 60%;
   height: 2rem;
   padding-left: 0.5rem;
   cursor: pointer;
