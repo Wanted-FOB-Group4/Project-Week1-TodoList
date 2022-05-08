@@ -1,6 +1,7 @@
 // 삭제될 부분
 
 .menuComponent {
+  position: relative;
   width: 280px;
   height: 550px;
   margin: 0 auto;
@@ -8,7 +9,14 @@
   background-color: #0d2260;
   border-radius: 25px;
 
+  .menuWrapper {
+    position: absolute;
+    z-index: 1;
+  }
+
   .todoComponent {
+    position: absolute;
+    z-index: 10;
     width: 280px;
     height: 550px;
     background-color: #ffffff;

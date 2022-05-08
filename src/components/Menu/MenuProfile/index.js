@@ -3,15 +3,14 @@ import styles from './MenuProfile.module.scss'
 
 import { CircularProgressbar } from 'react-circular-progressbar'
 import CIRCLE_STYLE from './progressBarStyle'
-import ArrowSvg from './ArrowSvg'
+import { ArrowLeftIcon } from '../../../assets/svgs'
 
-// eslint-disable-next-line react/prop-types
-function MenuProfile({ name, picSrc, todoMax, todoCount }) {
+function MenuProfile({ isMenuOpen, firstName, lastName, picSrc, todoMax, todoCount }) {
   const [percentage, setPercentage] = useState(0)
 
   useEffect(() => {
     setPercentage((todoCount * 100) / todoMax)
-  }, [todoMax, todoCount])
+  }, [isMenuOpen, todoMax, todoCount])
 
   const handleBtnClick = () => {
     console.log('clicked')
@@ -25,10 +24,11 @@ function MenuProfile({ name, picSrc, todoMax, todoCount }) {
           <CircularProgressbar value={percentage} className={styles.progressBar} styles={CIRCLE_STYLE} />
           <img src={picSrc} alt='profilePic' />
         </div>
-        <h1>{name}</h1>
+        <h1>{firstName}</h1>
+        <h1>{lastName}</h1>
       </div>
       <button type='button' className={styles.buttonWrapper} onClick={handleBtnClick}>
-        <ArrowSvg />
+        <ArrowLeftIcon />
       </button>
     </div>
   )

@@ -2,18 +2,6 @@ import styles from './Graph.module.scss'
 import { VictoryAxis, VictoryChart, VictoryContainer, VictoryLine } from 'victory'
 import { useEffect, useState } from 'react'
 
-// const INIT_DATA = [
-//   { x: 1, y: 0 },
-//   { x: 2, y: 3 },
-//   { x: 3, y: 1 },
-//   { x: 4, y: 4 },
-//   { x: 5, y: 2 },
-//   { x: 6, y: 6 },
-//   { x: 7, y: 2 },
-//   { x: 8, y: 3 },
-//   { x: 9, y: 5 },
-// ]
-
 function Graph({ isMenuOpen, data }) {
   // isMenuOpen : 메뉴가 열린 상태 판단 (boolean)
   // data : 그래프에 들어갈 데이터
