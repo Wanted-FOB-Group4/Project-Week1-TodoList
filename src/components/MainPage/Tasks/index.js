@@ -15,7 +15,12 @@ function Tasks({ tasks, setTasks, searchInput, selectedCategory }) {
   }
 
   const matchTaskContent = (task) => task.content.toLowerCase().includes(searchInput.toLowerCase())
-  const filterTaskByCategory = (task) => task.category.toLowerCase() === selectedCategory.toLowerCase()
+  const filterTaskByCategory = (task) => {
+    if (selectedCategory === 'All') {
+      return true
+    }
+    return task.category.toLowerCase() === selectedCategory.toLowerCase()
+  }
 
   const trailingActions = ({ id }) => (
     <TrailingActions>
