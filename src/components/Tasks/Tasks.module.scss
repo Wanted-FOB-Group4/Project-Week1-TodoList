@@ -14,6 +14,7 @@
     display: flex;
     gap: 12px;
     align-items: center;
+    width: 100%;
     padding: 16px;
     background-color: colors.$WHITE;
     border-radius: 12px;
@@ -47,5 +48,34 @@
 
   .done {
     text-decoration: line-through;
+  }
+
+  .deleteButton {
+    display: flex;
+    align-items: center;
+
+    .trashIcon {
+      width: 20px;
+      height: 20px;
+      margin-left: 20px;
+      fill: colors.$GRAYA;
+    }
+  }
+}
+
+.noTaskMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  line-height: 1.5rem;
+  color: colors.$GRAY6;
+
+  .smileIcon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 16px;
+    fill: colors.$YELLOW;
   }
 }
