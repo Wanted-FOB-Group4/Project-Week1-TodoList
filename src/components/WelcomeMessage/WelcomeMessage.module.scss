@@ -1,0 +1,82 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+
+.messageSection {
+  position: relative;
+  display: flex;
+  height: 90px;
+  padding: 20px 0;
+
+  .message {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    .messageDefault {
+      display: inline-block;
+      width: 150px;
+      margin-right: 10px;
+      letter-spacing: 0.1px;
+    }
+  }
+
+  .modifyBtn,
+  .saveBtn {
+    height: 100%;
+    padding-left: 4px;
+
+    .pencil {
+      width: 26px;
+      height: 20px;
+      margin: 15px 0;
+      fill: colors.$COLOR_ICON;
+
+      &.modify {
+        opacity: 0.3;
+      }
+
+      &.save {
+        opacity: 1;
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+.messageInputWrapper {
+  position: absolute;
+  top: 20px;
+  left: 152px;
+  z-index: levels.$GNB;
+  width: calc(100% - 182px);
+}
+
+.nameInput {
+  width: 100%;
+  height: 50px;
+  padding-left: 5px;
+  margin-left: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  background: colors.$BACKGROUND;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  border: 0;
+}
