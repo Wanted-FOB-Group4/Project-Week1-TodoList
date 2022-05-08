@@ -36,7 +36,7 @@ function Menu() {
   }
 
   const handleMenuBtn = () => {
-    setIsOpen((prev) => !prev)
+    setIsOpen((prevState) => !prevState)
   }
 
   return (
@@ -44,6 +44,7 @@ function Menu() {
       <div className={styles.menuWrapper}>
         <MenuProfile
           isMenuOpen={isOpen}
+          setIsMenuOpen={setIsOpen}
           firstName='Joy'
           lastName='Mitchell'
           picSrc='https://coinpan.com/files/attach/images/198/832/427/277/f337aaeffe1f5e52878e10264278831c.jpg'
