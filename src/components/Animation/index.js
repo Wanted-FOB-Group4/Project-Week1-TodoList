@@ -6,7 +6,7 @@ import styles from './Animation.module.scss'
 import Menu from '../Menu'
 import MainPage from '../MainPage'
 
-function Animation() {
+function Animation({ handleModal, tasks, setTasks }) {
   const [isOpen, setIsOpen] = useState(false)
   const [userName, setUserName] = useState('Joy')
 
@@ -32,6 +32,9 @@ function Animation() {
             handleMenuBtnClick={handleMenuBtn}
             userName={userName}
             handleUserNameChange={handleUserNameChange}
+            handleModal={handleModal}
+            tasks={tasks}
+            setTasks={setTasks}
           />
         </div>
       </motion.div>

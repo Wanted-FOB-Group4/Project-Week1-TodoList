@@ -3,8 +3,10 @@ import Header from './Header'
 import WelcomeMessage from './WelcomeMessage'
 import Categories from './Categories'
 import Tasks from './Tasks'
+import { PlusIcon } from '../../assets/svgs'
+import BigBtn from '../AddTodo/BigBtn/BigBtn'
 
-function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
+function MainPage({ handleMenuBtnClick, userName, handleUserNameChange, handleModal, tasks, setTasks }) {
   const [searchInput, setSearchInput] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [categories, setCategories] = useState([
@@ -24,29 +26,6 @@ function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
       total: 40,
     },
   ])
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      date: '',
-      isDone: false,
-      category: 'personal',
-      content: 'This is the first task',
-    },
-    {
-      id: 2,
-      date: '',
-      isDone: true,
-      category: 'business',
-      content: 'This is the second task',
-    },
-    {
-      id: 3,
-      date: '',
-      isDone: false,
-      category: 'business',
-      content: 'This is the third task',
-    },
-  ])
 
   const handleSearchInputChange = (searchChanged) => {
     setSearchInput(searchChanged)
@@ -60,6 +39,9 @@ function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
         <Categories categories={categories} setSelectedCategory={setSelectedCategory} />
         <Tasks tasks={tasks} setTasks={setTasks} searchInput={searchInput} />
       </main>
+      <BigBtn circle='true' onClickHandle={handleModal}>
+        <PlusIcon />
+      </BigBtn>
     </>
   )
 }
