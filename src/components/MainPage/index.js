@@ -86,7 +86,7 @@ function MainPage({ handleMenuBtnClick, userName, handleUserNameChange }) {
       <main>
         <WelcomeMessage name={userName} onUserNameChange={handleUserNameChange} />
         <Categories tasks={tasks} setSelectedCategory={setSelectedCategory} />
-        <Tasks tasks={tasks} setTasks={setTasks} searchInput={searchInput} />
+        <Tasks tasks={tasks} setTasks={setTasks} searchInput={searchInput} selectedCategory={selectedCategory} />
         {modalOn && <Modal onClose={handleModal} active={active} setTasks={setTasks} />}
       </main>
       <BigBtn circle='true' onClickHandle={handleModal}>
