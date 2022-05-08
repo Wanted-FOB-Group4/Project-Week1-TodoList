@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import { useState, useRef, useEffect } from 'react'
-import { PencilImage } from '../../assets/svgs'
+import { PencilImage } from '../../../assets/svgs'
 import styles from './WelcomeMessage.module.scss'
 import classnames from 'classnames'
 

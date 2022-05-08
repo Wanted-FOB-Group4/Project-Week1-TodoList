@@ -8,7 +8,9 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  height: 100px;
   margin-top: 20px;
+  overflow-y: scroll;
 
   li {
     display: flex;

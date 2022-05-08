@@ -3,7 +3,7 @@ import styles from './Tasks.module.scss'
 import TaskItem from '../TaskItem'
 import { SwipeableList, SwipeableListItem, SwipeAction, TrailingActions, Type as ListType } from 'react-swipeable-list'
 import 'react-swipeable-list/dist/styles.css'
-import { TrashImage, SmileImage } from '../../assets/svgs'
+import { TrashImage, SmileImage } from '../../../assets/svgs'
 
 function Tasks({ tasks, setTasks, searchInput }) {
   const handleToggleTask = (id) => {
