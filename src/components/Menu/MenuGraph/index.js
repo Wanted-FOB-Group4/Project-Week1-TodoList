@@ -23,7 +23,7 @@ function Graph({ isMenuOpen, data }) {
 
   return (
     <div className={styles.graphContainer}>
-      {isMenuOpen && (
+      {isMenuOpen ? (
         <VictoryChart animate={{ duration: 1000 }} containerComponent={<VictoryContainer />} width={500} height={300}>
           <VictoryLine
             data={graphData}
@@ -41,6 +41,8 @@ function Graph({ isMenuOpen, data }) {
             }}
           />
         </VictoryChart>
+      ) : (
+        <div className={styles.graphEmpty} />
       )}
     </div>
   )
